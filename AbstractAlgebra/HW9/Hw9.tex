@@ -28,7 +28,286 @@
     4/10/26 \\
     MATH 402
 }
+\rfoot{Page \thepage}\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\setlength{\headheight}{42pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    4/10/26 \\
+    MATH 402
+}
 \rfoot{Page \thepage}
+
+\begin{document} 
+\paragraph{\underline{9} \\ \\}
+\textbf{1.} \begin{tabular}[t]{l} 
+    The set of complex numbers $\mathbb{C} = \{z \mid z = a + bi\ , \  a, b \in \mathbb{R} \}$ can be represented geomet- \\
+    rically on a plane coordinatized by a horizontal real axis and a vertical imaginary axis, \\
+    so that each number $a + bi$ corresponds to the point $(a, b)$. The distance from the point \\
+    $z = a + bi$ to the origin is then $|z| = \sqrt{a^2 + b^2}$, called the \textit{modulus} of $z$.
+    \end{tabular} \hspace{0.2em} \\ 
+    \indent \indent \ \text{(a)} \begin{tabular}[t]{l}
+        Show that the set $S^1 = \{z \in \mathbb{C} \mid |z| = 1\}$ of all points on the unit circle in the \\
+        complex plane forms a group under complex multiplication (note when multiplying \\
+        complex numbers that $i^2 = -1$). \\ \\
+        We need to show that, under the operation of complex multiplcation, $S^1$ is closed, \\
+        associative, has an identity element, and has inverses. \vspace{0.5em} \\
+        \underline{\textbf{Closure:}} Let $z_1, z_2 \in S^1$. We know that $|z_1| = 1$ and $|z_2| = 1$. Consider the product \\ 
+        $z_1z_2$. We need to show that $|z_1z_2| = 1$. So,
+    \end{tabular}
+    \begin{align*}
+        |z_1z_2| &= |z_1| \cdot |z_2| \\
+        &= 1 \cdot 1 \\
+        &= 1
+        \end{align*}
+    \indent \indent \ \begin{tabular}[t]{l}
+        Therefore, $|z_1z_2| = 1$, so $z_1z_2 \in S^1$, showing that $S^1$ is closed under complex multiplication.   \vspace{0.5em} \\
+        \underline{\textbf{Associativity:}} Let $z_1, z_2, z_3 \in S^1$. We need to show that $(z_1 \cdot z_2) \cdot z_3 = z_1 \cdot (z_2 \cdot z_3)$. 
+        Since \\ each $z_i$ is a complex number, we can write $z_1$ = $a_1 + b_1i$, $z_2$ = $a_2 + b_2i$, and $z_3$ = $a_3 + b_3i$ \\ 
+        where $a_i, b_i \in \mathbb{R}$. So,
+    \end{tabular}
+    \begin{align*}
+        (z_1 \cdot z_2) \cdot z_3 &= ((a_1 + b_1i) \cdot (a_2 + b_2i)) \cdot (a_3 + b_3i) \\
+        &= (a_1a_2 + (a_1b_2)i + (b_1a_2)i - b_1b_2) \cdot (a_3 + b_3i) \\
+        &= (a_1a_2a_3 + (a_1b_2a_3)i + (b_1a_2a_3)i - b_1b_2a_3) \\
+        &+ ( (a_1a_2b_3)i - a_1b_2b_3 - b_1a_2b_3 - (b_1b_2b_3)i) \\
+        &= a_1[a_2a_3 + (b_2a_3)i + (a_2b_3)i - b_2b_3] \\
+        &+ b_1i[(a_2a_3) + (b_2a_3)i + (a_2b_3)i - b_2b_3] \\
+        &= a_1 + b_1i[a_2a_3 + (b_2a_3)i + (a_2b_3)i - b_2b_3] \\
+        &= a_1 + b_1i[a_2(a_3 + b_3i) + b_2i(a_3 + b_3i)] \\
+        &= a_1 + b_1i[a_2 + b_2i(a_3 + b_3i)] \\
+        &= z_1(z_2 \cdot z_3).
+    \end{align*} \\
+    \vspace{0.5em}
+    \indent \indent \ \begin{tabular}[t]{l} 
+        \underline{\textbf{Identity:}} Consider the element $1 + 0i \in \mathbb{C}$. It must be in $S^1$ since $|1 + 0i| = \sqrt{1^2 + 0^2} = 1$. \\
+        Let $z_1 \in S^1$.
+    \end{tabular}
+    \begin{align*}
+        z_1 \cdot 1 + 0i &= z_1 \cdot 1 \\
+        &= z_1.
+    \end{align*}
+   \indent \indent \ \begin{tabular}[t]{l}
+     Thus, $1$ is the identity for $S^1$.  \vspace{0.5em} \\
+     \underline{\textbf{Inverses}:} Let $z_1 = a_1 + b_1i \in S^1$ where $a_1, b_1 \in \mathbb{R}$. Consider its reciprocal $\frac{1}{z_1}$. It must be in \\
+     $S^1$ since $|\frac{1}{z_1}| = \frac{|1|}{|z_1|} = \frac{1}{1} = 1$. So,
+   \end{tabular}
+   \begin{align*}
+    z_1 \cdot \frac{1}{z_1} &= (a_1 + b_1i) \cdot \frac{1}{a_1 + b_1i} \\
+    &= 1.
+   \end{align*}
+   \indent \indent \ \begin{tabular}[t]{l}
+    So, $\frac{1}{z}$ is the inverse for any $z \in S^1$. Therefore $S^1$ is a group under complex multiplcation.
+   \end{tabular} \hspace{0.2em} \\
+   \indent \indent \ \text{(b)} \begin{tabular}[t]{l}
+   Let $\mathbb{R}$ be the group of real numbers under addition. Show that the map $\varphi: \mathbb{R} \rightarrow S^1$ \\
+   given by $\varphi(x) = \cos(x) + i\sin(x)$ is a homomorphism. \vspace{0.5em} \\
+   We need to show that $\varphi$ is operation preserving. Let $a,b \in \mathbb{R}$. Then,
+   \end{tabular}
+  \begin{align*}
+    \varphi(a + b) &= \cos(a + b) + i\sin(a + b) \\
+    &= [\cos(a)\cos(b) - \sin(a)\sin(b)] + i[\sin(a)\cos(b) + \cos(a)\sin(b)] \\
+    &= [\cos(a)\cos(b) - \sin(a)\sin(b)] + i\sin(a)\cos(b) + i\cos(a)\sin(b)\\
+    &= \cos(a)[\cos(b) + i\sin(b)] + i\sin(a)[\cos(b) + i\sin(b)]\\
+    &= (\cos(a) + i\sin(a))(\cos(b) + i\sin(b)) \\
+    &= \varphi(a)\varphi(b).
+  \end{align*} \\
+  \indent \indent \ \text{(c)} \begin{tabular}[t]{l} 
+    Use the First Isomorphism Theorem on $\varphi$ to conclude an isomorphism involving the \\
+    groups $\mathbb{R}$ and $S^{1}$. \\ \\
+    By the First Isomorphism Theorem, we know that $\mathbb{R}$/ker$\varphi \cong \varphi(\mathbb{R})$. Since the identity \\
+    of $S^1$ is 1, the kernel of $\varphi$ should be all angles $\theta$ in the unit circle such that $\cos(\theta) = 1$. \\
+    Since that is all multiples of $2\pi$, ker$\varphi = \langle 2\pi \rangle$. Since $S^1$ is a unit circle, all of $S^1$ can be\\
+    reached by some number in $\mathbb{R}$ (i.e. $\varphi(0) = 1$, $\varphi(\frac{\pi}{2}) = i$, $\varphi(\pi) = -1$, $\varphi(\frac{3\pi}{2}) = -i$). \\
+    So, $\varphi(\mathbb{R}) = S^1$. Hence, \boxed{\text{$\mathbb{R}/ \langle 2\pi \rangle \cong S^1$}}
+  \end{tabular} \vspace{0.5em}
+  
+  \noindent \textbf{2.} \indent \ \text{(a)} \begin{tabular} [t]{l}
+    Determine all homomorphisms from $\mathbb{Z}_{4}$ to $\mathbb{Z}_{2} \oplus \mathbb{Z}_{2}$. \\ \\
+    We know $\mathbb{Z}_4 = \langle 1 \rangle$. By property 2 of Theorem 10.1, if $\varphi(1) = (a,b)$ then $\varphi(x) =$ \\
+    $\underbrace{(a,b) + (a,b) + \cdots + (a,b)}_{x \text{ times}} = (xa,xb)$ $\forall \ x \in \mathbb{Z}_4$. By property 3 of Theorem 10.1 and \\ 
+    Lagrange's Theorem, $|(a,b)|$ must divide $|\mathbb{Z}_4|$ and $|\mathbb{Z}_2 \oplus \mathbb{Z}_2|$. So, $|(a,b)| = 1$ or $2$. 
+  \end{tabular} \vspace{0.5em} \\
+
+  \begin{align*}
+    |(0,0)| = \text{lcm}(|0_{\mathbb{Z}_2}|, |0_{\mathbb{Z}_2}|)&= 1 \\
+    |(1,0)| = \text{lcm}(|1_{\mathbb{Z}_2}|, |0_{\mathbb{Z}_2}|)&= 2 \\
+    |(0,1)| = \text{lcm}(|0_{\mathbb{Z}_2}|, |1_{\mathbb{Z}_2}|)&= 2 \\
+    |(1,1)| = \text{lcm}(|1_{\mathbb{Z}_2}|, |1_{\mathbb{Z}_2}|)&= 2
+  \end{align*}
+  \vspace{0.5em}
+  \indent \indent \: \: \begin{tabular}[t]{l}
+    So, there are \boxed{4 \ \text{homomorphisms}} from $\mathbb{Z}_4$ to $\mathbb{Z}_2 \oplus \mathbb{Z}_2$.
+    \end{tabular}
+
+  \noindent \phantom{\textbf{2.}} \indent \ \text{(b)} \begin{tabular}[t]{l}
+      How many homomorphisms are there from $\mathbb{Z}_{20}$ to $\mathbb{Z}_{10}$? How many of these are onto? \\ \\
+      We know $\mathbb{Z}_{20} = \langle 1 \rangle$. By property 2 of Theorem 10.1, if $\varphi(1) = a$ then $\varphi(x) = ax \ \forall$ \\
+      $x \in \mathbb{Z}_{20}$. By Lagrange's Theorem and property 3 of Theorem 10.1, $|a|$ must divide \\
+      $|\mathbb{Z}_{20}|$ and $|\mathbb{Z}_{10}|$. So, $|a| = 1, 2, 5, \: \text{or} \: 10$. \\
+      \end{tabular} \vspace{0.5em} 
+      \begin{align*}
+        * \ |a| &= \frac{n}{\gcd(a,n)}  \text{where $a \in \mathbb{Z}_n$} \\
+        \mathbb{Z}_{10} &= \left\{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 \right\} \\ \\
+        \Rightarrow  \ &\begin{array}{cccc}
+          1 & 2 & 5 & 10 \\
+          \downarrow & \downarrow & \downarrow & \downarrow \\
+          0 & 5 & \{2,4,6,8\} & \{1,3,7,9\}
+        \end{array}
+      \end{align*}
+      \indent \indent \: \begin{tabular}[t]{l}
+        So, there are \boxed{10 \ \text{homomorphisms}} from $\mathbb{Z}_{20}$ to $\mathbb{Z}_{10}$. Of the 10, \boxed{\text{4 are onto}} since only \\
+        4 elements in $\mathbb{Z}_{10}$ have order 10.
+      \end{tabular}
+
+  \noindent \textbf{3.} \begin{tabular}[t]{l}
+    Let $G$ be any subgroup of a dihedral group $D_n$. For each $x$ in $G$, define a map $\varphi$ from $G$ \\
+    to the multiplicative group $\{+1, -1\}$ by 
+    \end{tabular} 
+    \begin{align*}
+      \varphi(x) = 
+      \begin{cases}
+        +1 & \text{if } x \text{ is a rotation} \\
+        -1 & \text{if } x \text{ is a reflection}
+      \end{cases}
+    \end{align*}
+    \indent \indent \ \text{(a)} \begin{tabular}[t]{l}
+      Show that $\varphi$ is a homomorphism.
+      \end{tabular} \vspace{0.5em} \\
+      \indent \indent \ \begin{tabular}[t]{l}
+        Let $x_1, x_2 \in G$ be rotations and $y_1, y_2 \in G$ be reflections. Then, \\
+      \end{tabular}
+      \begin{align*}
+        \varphi(x_1x_2) &= +1 \\
+        &= \varphi(x_1) \cdot \varphi(x_2) \ \checkmark \\
+      \end{align*}
+      \begin{align*}
+        \varphi(y_1y_2) &= +1 \\
+        &= \varphi(y_1) \cdot \varphi(y_2) \ \checkmark \\
+      \end{align*}
+      \begin{align*}
+        \varphi(x_1y_1) &= -1 \\
+        &= \varphi(x_1) \cdot \varphi(y_1) \ \checkmark \\
+      \end{align*}
+      \indent \indent \ \begin{tabular}[t]{l}
+        So, $\varphi$ is a homomorphism.
+        \end{tabular} \vspace{0.5em} 
+
+      \indent \indent \ \text{(b)} \begin{tabular}[t]{l}
+        What is the kernel of $\varphi$? And explain why this proves the following proposition: \\ \\
+         \ \begin{tabular}[t]{l}
+        For every subgroup of $D_n$, either every member of the subgroup is a rotation, \\
+        or exactly half of the members are rotations.
+        \end{tabular}
+        \end{tabular} \vspace{0.5em} \\
+      \indent \indent \ \begin{tabular}[t]{l}
+        The kernel of $\varphi$ contains all elements of $G$ that map to +1. Given by the definition of $\varphi$, \\
+        this is all rotations in $G$. Since ker$\varphi$ is a subgroup of $G$, it is also a subgroup of $D_n$. So, \\
+        this takes care of the first half of the proposition. Suppose $G$ contained at least one \\
+        reflection $\alpha$ and $\beta \in G$. If $\beta$ is a rotation, $\beta\alpha$ is a reflection. If $\beta$ is a reflection, \\
+        $\beta\alpha$ is a rotation. This means any rotation in $G$ can reach a reflection and vice versa. \\
+        This one-to-one correspondence must mean there's an equal number of rotations and \\
+        reflections in $G$. Hence, exactly half of the members are rotations.
+        \end{tabular} \vspace{0.5em} 
+
+\noindent \textbf{4.} \indent \ \text{(a)} \begin{tabular}[t]{l}
+    Determine all possible homomorphic images of the symmetric group $S_3$. \\ \\
+    By Theorem 10.4, this is equivalent to finding the images of $S_3/N$ where $N$ is a normal  \\
+    subgroup of $S_3$. By HW 8 \# 1, we know that the normal subgroups of $S_3$ are $S_3$ itself, \\
+  the trivial subgroup, and $A_3$. Consider the order of the factor groups $S_3/N$,
+  \end{tabular} \vspace{0.5em} \\
+  \begin{align*}
+    |S_3/S_3| &= 1 \ (|e|)\\
+    |S_3/\{e\}| &= 6 \ (|S_3|)\\
+    |S_3/A_3| &= 2 \ (|\mathbb{Z}_2|)
+  \end{align*}
+  \indent \indent \ \begin{tabular}[t]{l}
+    So, the homomorphic images of $S_3$ are \boxed{\text{$S_3$, $\{e\}$, and $\mathbb{Z}_2$}}.
+    \end{tabular}
+
+  \indent \ \ \ \ \ \text{(b)} \begin{tabular}[t]{l}
+    Use the First Isomorphism Theorem to prove Theorem 9.4, which says that \\
+    $G/Z(G) \cong \text{Inn}(G)$ for any group $G$. 
+    \end{tabular} \vspace{0.5em} \\
+    \indent \indent \ \begin{tabular}[t]{l} 
+      \textit{Proof.} Let $G$ be a group and $Z(G)$ be the center of $G$. Let $\varphi: G \rightarrow \text{Inn}(G)$ be a map\\
+      defined by $\varphi(x) = gxg^{-1} \ \forall \ x \in G$ and for some fixed $g \in G$. We first need to show that\\
+      $\varphi$ is a homomorphism. If $a, b \in G$, then
+    \end{tabular} \vspace{0.5em} \\
+    \begin{align*}
+      \varphi(a)\varphi(b) &= (gag^{-1})(gbg^{-1}) \\
+      &= ga(g^{-1}g)bg^{-1} \\
+      &= gabg^{-1} \\
+      &= \varphi(ab).
+    \end{align*}
+    \indent \indent \ \begin{tabular}[t]{l}
+      So, $\varphi$ is a homomorphism. To show that $\varphi(G) = \text{Inn}(G)$, we need to show that $\varphi$ is onto. \\
+      Suppose $\varphi_g \in \text{Inn}(G)$. By definition, $\varphi(x) = gxg^{-1} \ \forall \ x \in G$. So, $\varphi$ is onto. By Theorem 10.4, \\
+      $Z(G)$ is the kernel of $G$ since $Z(G)$ is a normal subgroup of $G$. So, by the First Isomorphism \\
+      Theorem, $G/Z(G) \cong \text{Inn}(G)$.
+      \end{tabular} \vspace{0.5em} \\
+    \noindent \textbf{5.} \begin{tabular}[t]{l}
+      Suppose $\varphi: G \rightarrow H$ and $\sigma: H \rightarrow K$ are homomorphisms. \\
+      \indent \text{(a)} \begin{tabular}[t]{l}
+        Show that $\sigma\varphi: G \rightarrow K$ is a homomorphism.
+        \end{tabular} \\
+        \indent \indent Let $g_1, g_2 \in G$. Since $\varphi$ and $\sigma$ are homomorphisms, 
+      \end{tabular} \vspace{0.5em} 
+      \begin{align*}
+        \sigma\varphi(g_1g_2) &= \sigma(\varphi(g_1g_2)) \\
+        &=\sigma(\varphi(g_1)\varphi(g_2))\\
+        &=\sigma(\varphi(g_1))\sigma(\varphi(g_2))\\
+      \end{align*}
+  \indent \indent \ \text{(b)} \begin{tabular}[t]{l}
+    How are ker $\varphi$ and ker $\sigma\varphi$ related? \\
+    \ \ Let $g \in$ ker $\varphi$. This means $\varphi(g) = e_H$. Consider $\sigma\varphi(g)$.
+    \end{tabular}
+    \begin{align*}
+      \sigma\varphi(g) &= \sigma(\varphi(g)) \\
+      &= \sigma(e_H) \\
+      &= e_K.
+      \end{align*}
+      \indent \indent \indent \begin{tabular}[t]{l}
+        \ \ \ So, $g \in $ ker $\sigma\varphi$. Thus, \boxed{\text{ker $\varphi \subseteq$ ker $\sigma\varphi$}}.
+        \end{tabular} \vspace{0.5em} \\
+        \indent \indent \ \text{(c)} \begin{tabular}[t]{l}
+          If $\varphi$ and $\sigma$ are onto and $G$ is finite, describe the index [ker $\varphi$: ker $\sigma\varphi$] in terms of \\
+          $|H|$ and $|K|$.
+        \end{tabular} \\
+        \indent \indent \indent \ \begin{tabular}[t]{l}
+          Consider $|G$/ker$\varphi|$. By the First Isomorphism Theorem, we know that $|G$/ker$\varphi| = |\varphi(G)|$. \\
+          Since $\varphi$ is onto, every element of $H$ is reached by an element of $G$. That is, $|\varphi(G)| = |H|$. \\
+          So, $|G$/ker$\varphi| = |H|$. Similarly, $|H$/ker$\sigma|$ = $|K|$ and $|G$/ker$\sigma\varphi| = |K|$. So,
+          \end{tabular} \\
+          \begin{align*}
+            |\text{ker} \ \sigma\varphi : \text{ker} \ \varphi| &= \frac{|\text{ker} \ \sigma\varphi|}{|\text{ker} \ \varphi|} \\
+            &= \frac{\frac{|G|}{|K|}}{\frac{|G|}{|H|}} \\
+            &= \frac{|G|}{|K|} \cdot \frac{|H|}{|G|} \\
+            &= \boxed{\frac{|H|}{|K|}}
+          \end{align*}
+   \end{document}
 
 \begin{document} 
 \paragraph{\underline{9} \\ \\}

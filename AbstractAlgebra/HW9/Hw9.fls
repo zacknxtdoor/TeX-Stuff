@@ -1,8 +1,8 @@
-PWD /Users/goatgoat/Desktop/JuniorSpringSemester/AbstractAlgebra/HW9
+PWD /Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9
 INPUT /usr/local/texlive/2024/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/goatgoat/Desktop/JuniorSpringSemester/AbstractAlgebra/HW9/Hw9.tex
+INPUT /Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9/Hw9.tex
 OUTPUT Hw9.log
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -183,9 +183,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/framed/framed.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/framed/framed.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./Hw9.aux
-INPUT ./Hw9.aux
-INPUT Hw9.aux
 OUTPUT Hw9.aux
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii

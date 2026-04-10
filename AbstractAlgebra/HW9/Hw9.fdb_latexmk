@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1775770308.01854 "/Users/goatgoat/Desktop/JuniorSpringSemester/AbstractAlgebra/HW9/Hw9.tex" "Hw9.pdf" "Hw9" 1775770309.03586 0
-  "/Users/goatgoat/Desktop/JuniorSpringSemester/AbstractAlgebra/HW9/Hw9.tex" 1775770306.98385 14979 f1a264f93e135e2b5c84b9affdd18f97 ""
+["pdflatex"] 1775835540.75709 "/Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9/Hw9.tex" "Hw9.pdf" "Hw9" 1775835541.82002 2
+  "/Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9/Hw9.tex" 1775835538.64272 29942 14f282b6edaac4aed0333a8d12a4f08e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -146,8 +146,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1739658246.86671 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1739658241 8221423 aa6a2fcf940642c059f2067632e3f1a5 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Hw9.aux" 1775770308.92982 128 0190ee903ca2959eb83ddbea34c14e69 "pdflatex"
-  "Hw9.tex" 1775770306.98385 14979 f1a264f93e135e2b5c84b9affdd18f97 ""
+  "Hw9.aux" 1775835541.71062 128 0190ee903ca2959eb83ddbea34c14e69 "pdflatex"
+  "Hw9.tex" 1775835538.64272 29942 14f282b6edaac4aed0333a8d12a4f08e ""
   (generated)
   "Hw9.aux"
   "Hw9.log"

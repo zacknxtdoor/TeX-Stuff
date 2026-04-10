@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.15)  9 APR 2026 16:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.15)  10 APR 2026 10:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/goatgoat/Desktop/JuniorSpringSemester/AbstractAlgebra/HW9/Hw9.tex
-(/Users/goatgoat/Desktop/JuniorSpringSemester/AbstractAlgebra/HW9/Hw9.tex
+**/Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9/Hw9.tex
+(/Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9/Hw9.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -431,28 +431,41 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \fb@frh=\dimen289
 \FrameRule=\dimen290
 \FrameSep=\dimen291
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+)
+
+/Users/goatgoat/Desktop/JuniorSpringSemester/TeX-Stuff/AbstractAlgebra/HW9/Hw9.tex:31: LaTeX Error: Two \documentclass or \documentstyle commands.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 ...thepage}\documentclass[12pt, letterpaper]{
+                                                  article}
+The document may only declare one class.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
 \l__pdf_internal_box=\box69
-) (./Hw9.aux)
+)
+No file Hw9.aux.
 \openout1 = `Hw9.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
- (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+(/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count307
 \scratchdimen=\dimen292
@@ -506,146 +519,146 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \Hy@linkcounter=\count313
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 35.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 65.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 35--50
+Underfull \hbox (badness 10000) in paragraph at lines 65--80
 
  []
 
 
-Overfull \hbox (20.33275pt too wide) in paragraph at lines 35--50
+Overfull \hbox (20.33275pt too wide) in paragraph at lines 65--80
 [] \OT1/cmr/bx/n/12 1. []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--50
+Underfull \hbox (badness 10000) in paragraph at lines 65--80
 
  []
 
 
-Overfull \hbox (30.83842pt too wide) in paragraph at lines 35--50
+Overfull \hbox (30.83842pt too wide) in paragraph at lines 65--80
 [][] [] [] 
  []
 
 
-Overfull \hbox (54.46272pt too wide) in paragraph at lines 54--61
+Overfull \hbox (54.46272pt too wide) in paragraph at lines 84--91
 [][] [] 
  []
 
 
-Overfull \hbox (52.20078pt too wide) in paragraph at lines 72--78
+Overfull \hbox (52.20078pt too wide) in paragraph at lines 102--108
  [][] [] 
  []
 
 
-Overfull \hbox (49.71996pt too wide) in paragraph at lines 81--87
+Overfull \hbox (49.71996pt too wide) in paragraph at lines 111--117
 [][] [] 
  []
 
 [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (38.69998pt too wide) in paragraph at lines 90--99
+Overfull \hbox (38.69998pt too wide) in paragraph at lines 120--129
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--99
+Underfull \hbox (badness 10000) in paragraph at lines 120--129
 
  []
 
 
-Overfull \hbox (29.81117pt too wide) in paragraph at lines 90--99
+Overfull \hbox (29.81117pt too wide) in paragraph at lines 120--129
 [][] [] [] 
  []
 
 
-Overfull \hbox (43.37595pt too wide) in paragraph at lines 106--116
+Overfull \hbox (43.37595pt too wide) in paragraph at lines 136--146
 [][] [] []
  []
 
 
-Overfull \hbox (24.25032pt too wide) in paragraph at lines 117--123
+Overfull \hbox (24.25032pt too wide) in paragraph at lines 147--153
 \OT1/cmr/bx/n/12 2. [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--123
+Underfull \hbox (badness 10000) in paragraph at lines 147--153
 
  []
 
 [2]
-Overfull \hbox (30.49066pt too wide) in paragraph at lines 135--141
+Overfull \hbox (30.49066pt too wide) in paragraph at lines 165--171
 [] [] [] []
  []
 
 
-Overfull \hbox (19.5641pt too wide) in paragraph at lines 149--154
+Overfull \hbox (19.5641pt too wide) in paragraph at lines 179--184
 [][] [] 
  []
 
 
-Overfull \hbox (13.70192pt too wide) in paragraph at lines 155--159
+Overfull \hbox (13.70192pt too wide) in paragraph at lines 185--189
 \OT1/cmr/bx/n/12 3. [] 
  []
 
 
-Overfull \hbox (13.24669pt too wide) in paragraph at lines 188--204
+Overfull \hbox (13.24669pt too wide) in paragraph at lines 218--234
 [][] [] []
  []
 
 
-Overfull \hbox (37.4401pt too wide) in paragraph at lines 188--204
+Overfull \hbox (37.4401pt too wide) in paragraph at lines 218--234
 [][] []
  []
 
 [3]
-Overfull \hbox (45.5841pt too wide) in paragraph at lines 205--211
+Overfull \hbox (45.5841pt too wide) in paragraph at lines 235--241
 \OT1/cmr/bx/n/12 4. [] [] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--211
+Underfull \hbox (badness 10000) in paragraph at lines 235--241
 
  []
 
 
-Overfull \hbox (29.38893pt too wide) in paragraph at lines 220--229
+Overfull \hbox (29.38893pt too wide) in paragraph at lines 250--259
 [][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--229
+Underfull \hbox (badness 10000) in paragraph at lines 250--259
 
  []
 
 
-Overfull \hbox (51.81773pt too wide) in paragraph at lines 234--248
+Overfull \hbox (60.78728pt too wide) in paragraph at lines 264--278
 [][] []
  []
 
 [4]
-Overfull \hbox (15.27364pt too wide) in paragraph at lines 261--274
+Overfull \hbox (15.27364pt too wide) in paragraph at lines 291--304
 [][] [] [] 
  []
 
 
-Overfull \hbox (60.68092pt too wide) in paragraph at lines 261--274
+Overfull \hbox (60.68092pt too wide) in paragraph at lines 291--304
 [][][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--274
+Underfull \hbox (badness 10000) in paragraph at lines 291--304
 
  []
 
@@ -656,15 +669,15 @@ L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15571 strings out of 474116
- 311374 string characters out of 5743682
+ 15568 strings out of 474116
+ 311368 string characters out of 5743682
  1946187 words of memory out of 5000000
- 37649 multiletter control sequences out of 15000+600000
+ 37648 multiletter control sequences out of 15000+600000
  564671 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,19n,93p,482b,244s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,19n,93p,492b,244s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Hw9.pdf (5 pages, 139455 bytes).
+Output written on Hw9.pdf (5 pages, 139373 bytes).
 PDF statistics:
  83 PDF objects out of 1000 (max. 8388607)
  51 compressed objects within 1 object stream

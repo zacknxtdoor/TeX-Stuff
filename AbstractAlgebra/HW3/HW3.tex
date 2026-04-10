@@ -1,0 +1,368 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    2/4/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+% Define pentagon command
+\newcommand{\pentagon}[5]{
+    \begin{tikzpicture}[scale=0.8, baseline=-0.5ex]
+        \node[regular polygon, regular polygon sides=5, minimum size=1.8cm, draw, thick] (p) at (0,0) {};
+        \node[font=\footnotesize] at ($(p.corner 1)!0.3!()$) {#1};
+        \node[font=\footnotesize] at ($(p.corner 2)!0.3!(p.center)$) {#2};
+        \node[font=\footnotesize] at ($(p.corner 3)!0.3!(p.center)$) {#4};
+        \node[font=\footnotesize] at ($(p.corner 5)!0.3!(p.center)$) {#3};
+        \node[font=\footnotesize] at ($(p.corner 4)!0.3!(p.center)$) {#5};
+    \end{tikzpicture}
+}
+
+% Define pentagon with reflection line
+\newcommand{\pentagonreflect}[6]{
+    \begin{tikzpicture}[scale=0.8, baseline=-0.5ex]
+        \node[regular polygon, regular polygon sides=5, minimum size=1.8cm, draw, thick] (p) at (0,0) {};
+        \node[font=\footnotesize] at ($(p.corner 1)!0.3!()$) {#1};
+        \node[font=\footnotesize] at ($(p.corner 2)!0.3!(p.center)$) {#2};
+        \node[font=\footnotesize] at ($(p.corner 3)!0.3!(p.center)$) {#4};
+        \node[font=\footnotesize] at ($(p.corner 5)!0.3!(p.center)$) {#3};
+        \node[font=\footnotesize] at ($(p.corner 4)!0.3!(p.center)$) {#5};
+        \draw[dashed, thick, blue] (p.corner #6) -- ($(p.corner #6)!2.4!(p.center)$);
+    \end{tikzpicture}
+}
+
+\begin{document}
+
+\paragraph{\underline{3} \\ \\} 
+
+\textbf{1.} Find and describe the elements of $D_5$, the dihedral group of order $10$. Specify the order of each element, and construct a Cayley table for the group. 
+\begin{align*}
+    &* \ D_5 \ \Rightarrow \text{pentagon} \\
+    &* \ \text{5 sides} \ \Rightarrow \text{Every rotation should be a multiple of $360 \div 5 = \underline{72}^{\circ}$ }
+\end{align*}
+
+
+\vspace{0.3cm}
+\indent
+\textbf{1)} \quad \pentagon{1}{2}{3}{4}{5} \quad $\xrightarrow{\quad R_0 \quad}$ \quad \pentagon{1}{2}{3}{4}{5} \qquad Pentagon is unchanged 
+
+\vspace{0.3cm}
+\indent
+\textbf{2)} \quad \pentagon{1}{2}{3}{4}{5} \quad $\xrightarrow{\quad R_{72} \quad}$ \quad \pentagon{3}{1}{5}{2}{4} \qquad \text{$72^{\circ}$ rotation (counter-clockwise)} \ 
+
+\vspace{0.3cm}
+\indent
+\textbf{3)} \quad \pentagon{1}{2}{3}{4}{5} \quad $\xrightarrow{\quad R_{144} \quad}$ \quad \pentagon{5}{3}{4}{1}{2} \qquad \text{$144^{\circ}$ rotation}
+
+\vspace{0.3cm}
+\indent
+\textbf{4)} \quad \pentagon{1}{2}{3}{4}{5} \quad $\xrightarrow{\quad R_{216} \quad}$ \quad \pentagon{4}{5}{2}{3}{1} \qquad \text{$216^{\circ}$ rotation}
+
+\vspace{0.3cm}
+\indent
+\textbf{5)} \quad \pentagon{1}{2}{3}{4}{5} \quad $\xrightarrow{\quad R_{288} \quad}$ \quad \pentagon{2}{4}{1}{5}{3} \qquad \text{$288^{\circ}$ rotation}
+
+\vspace{0.3cm}
+\indent
+\textbf{6)} \quad \pentagonreflect{1}{2}{3}{4}{5}{1} \quad $\xrightarrow{\quad F_1 \quad}$ \quad \pentagon{1}{3}{2}{5}{4} \qquad Horizontal flip
+
+\vspace{0.3cm}
+\indent
+\textbf{7)} \quad \pentagonreflect{1}{2}{3}{4}{5}{2} \quad $\xrightarrow{\quad F_2 \quad}$ \quad \pentagon{4}{2}{5}{1}{3} \qquad Diagonal flip through 2
+
+\vspace{0.3cm}
+\indent
+\textbf{8)} \quad \pentagonreflect{1}{2}{3}{4}{5}{3} \quad $\xrightarrow{\quad F_3 \quad}$ \quad \pentagon{3}{5}{1}{4}{2} \qquad Diagonal flip through 4
+
+\vspace{0.3cm}
+\indent
+
+\textbf{9)} \quad \pentagonreflect{1}{2}{3}{4}{5}{4} \quad $\xrightarrow{\quad F_4 \quad}$ \quad \pentagon{2}{1}{4}{3}{5}
+
+\vspace{0.3cm}
+\indent
+\textbf{10)} \quad \pentagonreflect{1}{2}{3}{4}{5}{5} \quad $\xrightarrow{\quad F_5 \quad}$ \quad \pentagon{5}{4}{3}{2}{1}
+
+\vspace{0.5cm}
+\indent
+
+
+
+\underline{\textbf{Cayley Table} for $D_5$}
+
+\begin{center}
+\small
+\begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|}
+\hline
+$$ & $R_0$ & $R_{72}$ & $R_{144}$ & $R_{216}$ & $R_{288}$ & $F_1$ & $F_2$ & $F_3$ & $F_4$ & $F_5$ \\
+\hline\hline
+$R_0$ & $R_0$ & $R_{72}$ & $R_{144}$ & $R_{216}$ & $R_{288}$ & $F_1$ & $F_2$ & $F_3$ & $F_4$ & $F_5$ \\
+\hline
+$R_{72}$ & $R_{72}$ & $R_{144}$ & $R_{216}$ & $R_{288}$ & $R_0$ & $F_3$ & $F_4$ & $F_5$ & $F_1$ & $F_2$ \\
+\hline
+$R_{144}$ & $R_{144}$ & $R_{216}$ & $R_{288}$ & $R_0$ & $R_{72}$ & $F_5$ & $F_1$ & $F_2$ & $F_3$ & $F_4$ \\
+\hline
+$R_{216}$ & $R_{216}$ & $R_{288}$ & $R_0$ & $R_{72}$ & $R_{144}$ & $F_2$ & $F_3$ & $F_4$ & $F_5$ & $F_1$ \\
+\hline
+$R_{288}$ & $R_{288}$ & $R_0$ & $R_{72}$ & $R_{144}$ & $R_{216}$ & $F_4$ & $F_5$ & $F_1$ & $F_2$ & $F_3$ \\
+\hline
+$F_1$ & $F_1$ & $F_4$ & $F_2$ & $F_5$ & $F_3$ & $R_0$ & $R_{144}$ & $R_{288}$ & $R_{72}$ & $R_{216}$ \\
+\hline
+$F_2$ & $F_2$ & $F_5$ & $F_3$ & $F_1$ & $F_4$ & $R_{216}$ & $R_0$ & $R_{144}$ & $R_{288}$ & $R_{72}$ \\
+\hline
+$F_3$ & $F_3$ & $F_1$ & $F_4$ & $F_2$ & $F_5$ & $R_{72}$ & $R_{216}$ & $R_0$ & $R_{144}$ & $R_{288}$ \\
+\hline
+$F_4$ & $F_4$ & $F_2$ & $F_5$ & $F_3$ & $F_1$ & $R_{288}$ & $R_{72}$ & $R_{216}$ & $R_{0}$ & $R_{144}$ \\
+\hline
+$F_5$ & $F_5$ & $F_3$ & $F_1$ & $F_4$ & $F_2$ & $R_{144}$ & $R_{288}$ & $R_{72}$ & $R_{216}$ & $R_{0}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{empheq}[box=\fbox]{align*}
+ &|R_0|= 1 \ (\text{identity}) \\ 
+ &|R_{72}|= 5 \ (\text{$R_{72}R_{72}R_{72}R_{72}R_{72} = R_{0}$}) \\
+ & |R_{144}|= 4 \ (R_{144}R_{144}R_{144}R_{144} = R_0) \\
+ & | R_{216}|= 3 \ (R_{216}R_{216}R_{216} = R_0) \\
+ & |R_{288}| = 2 \ (R_{288}R_{288} = R_0) \\ 
+ & |F_1| = 2 \ (F_1F_1 = R_0) \\
+ & |F_2| = 2 \ (F_2F_2 = R_0) \\
+ & |F_3| = 2 \ (F_3F_3 = R_0) \\
+ & |F_4| = 2 \ (F_4F_4 = R_0) \\
+ & |F_5| = 2 \ (F_5F_5 = R_0)
+\end{empheq}
+
+\vspace{0.2em}
+\textbf{2.} Prove that the set of all $3 \times 3$ matrices with real entries of the form
+\begin{align*}
+    \left[\begin{array}{ccc}
+         1& a & b\\
+         0& 1& c \\
+         0 & 0 & 1
+    \end{array}\right]
+\end{align*}
+is a group under matrix multiplication. That is,
+\begin{align*}
+    \left[\begin{array}{ccc}
+         1& a & b \\
+         0& 1& c\\
+         0 & 0 & 1
+    \end{array}\right] \left[\begin{array}{ccc}
+         1& a'& b' \\
+         0& 1 & c' \\
+         0 & 0 & 1
+    \end{array}\right] = \left[\begin{array}{ccc}
+         1 & a + a' & b' + ac' + b \\
+         0 & 1 & c' + c \\
+         0 & 0 & 1
+    \end{array}\right]
+\end{align*} \\
+To prove that this set is a group, we must show that it satisfies all the properties of a group.\\
+\indent \textbf{Associativity}: Yes, because matrix multiplication is inherently associative. \\ \\ 
+\indent \textbf{Identity}: \begin{align*}
+    \left[\begin{array}{ccc}
+         1& a & b\\
+         0& 1& c \\
+         0 & 0 & 1
+    \end{array}\right] &\cdot \left[\begin{array}{ccc}
+         1& 0 & 0 \\
+         0& 1 & 0 \\
+         0 & 0 & 1
+    \end{array}\right] = \left[\begin{array}{ccc}
+         1& a & b \\
+         0& 1 & c \\
+         0 & 0 & 1
+    \end{array} \right] \\ \\
+    \Rightarrow \ &\boxed{\left[\begin{array}{ccc}
+         1& 0 & 0 \\
+         0& 1 & 0 \\
+         0 & 0 & 1
+    \end{array}\right]}
+\end{align*}
+\indent \textbf{Inverse}:
+\begin{align*}
+    \left[\begin{array}{ccc}
+         1&a&b  \\
+         0&1&c \\
+         0&0&1
+    \end{array}\right] &\cdot \left[\begin{array}{ccc}
+         1& -a & ac -b \\
+         0& 1 & -c \\
+         0 & 0 & 1
+    \end{array}\right] = \left[\begin{array}{ccc}
+         1& 0 & 0  \\
+         0 & 1 & 0 \\
+         0 & 0 & 1 
+    \end{array}\right] \\ \\
+    \Rightarrow \ &\boxed{\left[\begin{array}{ccc}
+         1& -a & ac -b \\
+         0& 1 & -c \\
+         0 & 0 & 1 
+    \end{array}\right]} \\ \\
+    \Rightarrow \ &\text{$M_{3 \times 3}$ of this form is a group}
+\end{align*}
+\vspace{0.2em}
+\textbf{3.} Prove that a group $G$ is Abelian if and only if $(ab)^{-1} = a^{-1}b^{-1}$ for all $a$ and $b$ in $G$.
+\begin{proof}
+    Suppose $G$ is Abelian and $ab \in G$ s.t $\exists$ $(ab)^{-1}$. Using the Socks-Shoes Property,
+    \begin{align*}
+        (ab)^{-1} = b^{-1}a^{-1}.
+    \end{align*}
+    Since $G$ is Abelian, commutativity is satisfied and thus,
+    \begin{align*}
+        &b^{-1}a^{-1} = a^{-1}b^{-1} \\
+       \Rightarrow \  &(ab)^{-1} = a^{-1}b^{-1}.
+    \end{align*}
+    Suppose $(ab)^{-1} = a^{-1}b^{-1}$. Since $a,b \in G$, using the Socks-Shoes Property, 
+    \begin{align*}
+        &(ab)^{-1} = b^{-1}a^{-1} \\
+        \Rightarrow \ & a^{-1} b^{-1} = b^{-1}a^{-1} \\
+        \Rightarrow \ & (ba)^{-1} = (ab)^{-1}.
+    \end{align*}
+    Since inverses are unique, it must be that 
+    \begin{align*}
+         &ba = ab
+    \end{align*}
+    which is precisely the definition of commutativity, and $\therefore \ G$ must also be Abelian. 
+\end{proof}
+\vspace{0.2em}
+\textbf{4.} Prove that if $G$ is a group with the property that the square of every element is the identity, then $G$ is Abelian.
+\begin{proof}
+    Suppose $G = \{x \mid x^{2} = e\}$ is a group. Let $a, b \in G$ s.t
+    \begin{align*}
+        &a^{2} = b^{2} = e \\
+        \Rightarrow \ &a^2b^{2} = ee = e \\
+        \Rightarrow \ &b^{2}a^{2} = ee =e \\
+        \Rightarrow \ &a^{2}b^{2} = b^{2}a^{2}.
+    \end{align*}
+    Since $G$ is a group, $a^{-1}, \ b^{-1} \in G$. Multiplying $a^{-1}$ on the LHS and $b^{-1}$ on the RHS of both expressions,
+    \begin{align*}
+        a^{-1}(a^{2}b^{2})b^{-1} = a^{-1}(b^{2}a^2)b^{-1}.
+    \end{align*}
+    Using the property of associativity and exponent rules,
+    \begin{align*}
+        a^{-1 +2}b^{2 -1} &= a^{-1}(ee)b^{-1} \\
+    \Rightarrow \ ab &= a^{-1}b^{-1}.
+    \end{align*}
+    By the Socks-Shoes Property,
+    \begin{align*}
+        ab& = (ba)^{-1} \\
+        \Rightarrow \ ab& = (ba)^{-1}e \\
+        \Rightarrow \ ab & = (ba)^{-1}(ba)^{2} \ \text{where $ba \in G$}\\
+        \Rightarrow \ ab &= (ba)^{-1 + 2} \\
+        \Rightarrow \ ab &= ba.
+    \end{align*}
+    This is the definition of commutativity on elements of $G$ showing that $G$ is Abelian.
+\end{proof} 
+\vspace{0.2em}
+\noindent \textbf{5.} List the six elements of $GL(2, \mathbb{Z}_{2})$. Show that this group is non-Abelian by finding two elements that do not commute. 
+\begin{align*}
+    * \ &\mathbb{Z}_{n} = \{0, 1, ..., n-1\} \\
+    \Rightarrow \ &\mathbb{Z}_{2} = \{0, 1\} \\ 
+    * \ &\text{Elements of a $GL$ group have nonzero determinants} \\ \\
+    GL(2, \mathbb{Z}_{2}) = \ & \textbf{1)} \left[\begin{array}{cc}
+         1&0  \\
+         0&1 
+    \end{array}\right] \ \text{(det = 1 $\neq$ 0}) \\ \\
+    &\textbf{2)} \left[\begin{array}{cc}
+         0&1  \\
+         1&0 
+    \end{array}\right] \ (\text{det = $-1 \neq 0$}) \\ \\
+    &\textbf{3)} \left[\begin{array}{cc}
+        1 & 1 \\
+        1 &0 
+    \end{array}\right] \ (\text{det = $-1 \neq 0$}) \\ \\
+    &\textbf{4)} \left[\begin{array}{cc}
+         1&1  \\
+         0&1 
+    \end{array}\right] \ (\text{det = $1 \neq 0$}) \\ \\
+    &\textbf{5)} \left[\begin{array}{cc}
+        1 & 0 \\
+        1 & 1
+    \end{array}\right] \ (\text{det = $1 \neq 0$}) \\ \\
+    &\textbf{6)} \left[\begin{array}{cc}
+        0 & 1 \\
+        1 & 1
+    \end{array}\right] \ (\text{det = $-1 \neq 0$})
+\end{align*}
+\indent Let $A = \left[\begin{array}{cc} 
+        1 & 1 \\
+        1 &0 
+    \end{array}\right]$ and $B = \left[\begin{array}{cc}
+         1&1  \\
+         0&1 
+    \end{array}\right]$ \\
+\begin{align*}
+    AB & = \left[\begin{array}{cc} 
+        1 & 1 \\
+        1 &0 
+    \end{array}\right] \cdot \left[\begin{array}{cc}
+         1&1  \\
+         0&1 
+    \end{array}\right] = \left[\begin{array}{cc}
+        1 & 2 \\
+        1 & 1
+    \end{array}\right] \\ \\
+    BA &= \left[\begin{array}{cc}
+         1&1  \\
+         0&1 
+    \end{array}\right] \cdot \left[\begin{array}{cc} 
+        1 & 1 \\
+        1 &0 
+    \end{array}\right] = \left[\begin{array}{cc}
+        2 & 1 \\
+        1 & 0
+    \end{array}\right] \\ \\
+    \Rightarrow \ &\boxed{AB \neq BA, \ \therefore GL(2, \mathbb{Z}_{2}) \ \text{is non-Abelian.}}
+\end{align*}
+\vspace{0.2em}
+\textbf{6.} Let $a$ belong to a group $G$ with $|a| = m$. If $n$ is relatively prime to $m$, show that $a$ can be written as the $n$th power of some element in the group.
+\begin{proof}
+    Suppose $G$ is a group in which $a \in G$ and $a$ is of order $m$. Letting $b$ be some element in $G$, we want to show that 
+    \begin{align*}
+        b^{n} = a.
+    \end{align*}If $n$ is relatively prime with $m$, that means
+    \begin{align*}
+        \gcd(n, m) = 1.
+    \end{align*}
+    By Bezout's Identity, $\exists \ x,y \in \mathbb{Z}$ s.t
+    \begin{align*}
+        &xn + ym = 1 \\
+        \Rightarrow \ &a^{xn + ym} = a^{1}.
+    \end{align*}
+    Using exponent rules,
+    \begin{align*}
+        &a^{xn} \cdot a^{ym} = a \\
+        \Rightarrow \ &(a^{x})^{n} \cdot (a^{m})^{y} = a.
+    \end{align*}
+    Since the order of $a$ is $m$, $a^m = e$. Thus,
+    \begin{align*}
+        &(a^{x})^n \cdot e^{y} = a \\
+        \Rightarrow \ &(a^{x})^{n} = a \\
+        \Rightarrow \ &b^n = a \ \ \text{where $b = a^{x} \in G$}.
+    \end{align*}
+\end{proof}
+
+\end{document}

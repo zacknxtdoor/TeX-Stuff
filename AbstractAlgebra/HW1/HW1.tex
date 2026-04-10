@@ -1,0 +1,241 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    1/21/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document}
+
+\paragraph{\underline{1} \\ \\} 
+
+\textbf{1.} \text{Prove that the set S = \{$\frac{p}{q}$ $\mid$ \ $p, q \in \mathbb{Z}$, \ $p > q > 0$\} has no smallest member.}
+
+\begin{proof}
+    By contradiction, suppose $a \in S$ s.t
+    \begin{align*}
+        &a = \frac{p}{q} \\
+       \Rightarrow \ &aq = p \\
+    \Rightarrow \  &q = \frac{p}{a}
+    \end{align*}
+    is the smallest member in S. Let $p_{o} = p + 1 \in \mathbb{Z}$ and $q_{0} = q + 1 \in \mathbb{Z}$. Adding 1 to both sides, 
+    \begin{align*}
+        &p > q > 0 \\
+        \Rightarrow \ &p + 1> q + 1> 1 > 0 \\
+        \Rightarrow \ &p + 1 > q + 1 > 0
+    \end{align*}
+    satisfies the conditions for S. Furthermore, let $a_{0} = \frac{p_{0}}{q_{0}} \in S$. We can rewrite $a_{0}$ to be  
+    \begin{align*}
+        a_{0} &= \frac{p + 1}{q + 1} \\ \\
+        &= \frac{p + 1}{\frac{p}{a} + 1} \\ \\
+        &= \frac{p+1}{\frac{p}{a} + \frac{a}{a}} \\ \\
+        &= \frac{p + 1}{\frac{p + a}{a}} \\ \\
+        &= \frac{a(p+1)}{p + a} \\ \\
+        &= a \cdot \frac{p + 1}{p+a}.
+    \end{align*}
+    Since $p > q$,
+    \begin{align*}
+    \Rightarrow \ &a > 1 \\
+        \Rightarrow \ &p + a > p + 1 \\  
+        \Rightarrow \ &1 > \frac{p+1}{p+a} \ \ \text{where $p + a > 0$}.
+    \end{align*}
+    So, multiplying everything by $a$ yields
+    \begin{align*}
+        &a > \frac{a(p+1)}{p + a} \\ \\
+        \Rightarrow \ &a > a_{0} 
+    \end{align*}
+    which contradicts $a$ being the smallest member in S, showing that we can always find a smaller member. $\therefore$ there must not be a smallest member in S. 
+\end{proof}
+
+
+
+
+\textbf{2.} \textbf{(a)} \text{Suppose $a, b \in \mathbb{Z}$ with $a > b > 0$. Prove that the $\gcd(a,b) = \gcd(a-b,b)$.} \\
+
+\begin{proof}
+    Let $S_{1}$ = \{$n$ $\mid$ $a = nx, \ b = ny, \ n,x,y \in \mathbb{Z}$\} be the set of all common divisors for $a$ and $b$ and $S_{2}$ = \{$m$ $\mid$ $a - b = ms, \ b = mt, \ m,s,t \in \mathbb{Z}$\} be the set of all common divisors for $a-b$ and $b$. To show that the $\gcd(a,b) = \gcd(a-b, b)$, we need to show that $\forall$ elements in $S_{1}$, they are also in $S_{2}$ and vice-versa. That is, we must show that $S_{1} = S_{2}$. To that end, let $x \in S_{1}.$ Since x is a divisor for both a and b, that means 
+    \begin{align*}
+        &a = xy \ \ \  \text{for some $y \in \mathbb{Z}$} \\
+        &b = xz \ \ \  \text{for some $z \in \mathbb{Z}$}. \\
+    \end{align*}
+    Since $x$ divides $b$, we only need to show that $x$ also divides $a-b$. Taking the difference of $a$ and $b$,
+    \begin{align*}
+        a - b &= xy - xz \\
+        &=x(y-z).
+    \end{align*}
+    Given that $y,z \in \mathbb{Z}$, $k = y-z$ must also be an integer. So, by the definition of divisibility, 
+    \begin{align*}
+        &a-b = xk \\
+        \Rightarrow \ &x \; \mid \; a - b
+    \end{align*}
+    $x$ is also a divisor of $a-b$, meaning $x \in S_{2}$. Let $y \in S_{2}$. Since y is a divisor of both $a-b$ and $b$, that means
+    \begin{align*}
+         &a - b = ys \ \ \ \text{for some $s \in \mathbb{Z}$} \\
+        &b = yt \ \ \  \text{for some $t \in \mathbb{Z}$}. \\
+    \end{align*}
+    Since $y$ divides $b$, we only need to show that $y$ also divides $a$. Taking the sum of $a-b$ and $b$,
+    \begin{align*}
+        (a-b) + b &= ys + yt \\
+        \Rightarrow \ a &= ys + yt \\
+        &=y(s + t).
+    \end{align*}
+    Since $s,t \in \mathbb{Z}$, $n = s + t$ must also be an integer. So, by the definition of divisibility,
+    \begin{align*}
+        &a = yn \\
+        \Rightarrow \ &y \; \mid \; a
+    \end{align*}
+    $y$ is a divisor of $a$, meaning that $y \in S_{1}$. Since any element in $S_{1}$ is also in $S_{2}$ and vice-versa, it must be that $S_{1} = S_{2}$. With their sets of common divisors being the same, we have shown that the $\gcd(a,b) = \gcd(a-b, b)$.
+\end{proof}
+\textbf{(b)} Use the result from (a) repeatedly to simplify finding $\gcd(366, 240)$.
+\begin{align*}
+    \gcd(366, 240) &= \gcd(240, 126) \\
+    &= \gcd(126, 114) \\
+    &= \gcd(114, 12) \\
+    &= \gcd(102, 12) \\
+    &= \gcd(90, 12) \\
+    &= \gcd(78, 12)\\
+    &= \gcd(66, 12) \\
+    &= \gcd(54, 12) \\
+    &= \gcd(42, 12) \\
+    &= \gcd(30, 12) \\
+    &= \gcd(18, 12) \\
+    &= \gcd(12, 6) \\
+    &= \gcd(6, 6) \\
+    &= \boxed{6}
+\end{align*} \\
+
+
+
+\noindent\textbf{3.} Suppose $a$ and $b$ are integers that each divide another integer $c$. 
+
+\textbf{(a)} If $a$ and $b$ are relatively prime, show that $ab$ divides $c$.
+\begin{proof}
+    Given that both $a$ and $b$ divide $c$, by the definition of divisibility,
+    \begin{align*}
+        &c = ax \ \ \ \text{for some $x \in \mathbb{Z}$} \\
+        &c = by \ \ \ \text{for some $y \in \mathbb{Z}$}.
+    \end{align*}
+    Consider $a$ and $b$ to be relatively prime, that is
+    \begin{align*}
+        \gcd(a,b) = 1.
+    \end{align*}
+    By Bezout's Identity, $\exists$ some $s, t \in \mathbb{Z}$ s.t
+    \begin{align*}
+        as + bt = 1.
+    \end{align*}
+    Multiplying both sides by c,
+    \begin{align*}
+        &cas + cbt = c \\
+      \Rightarrow \  &(by)as + (ax)bt = c \\
+       \Rightarrow \  &(ba)ys + (ab)xt = c \\ 
+       \Rightarrow \ &ab(ys + xt) =c.
+    \end{align*}
+    Since $y,s,x, \text{and} \ t \in \mathbb{Z}, \ k = ys + xt$ must also be an integer. So,
+    \begin{align*}
+        &c = ab(k) \\
+        \Rightarrow \ &ab \ \mid \ c.
+    \end{align*}
+\end{proof}
+\textbf{(b)} Give an example to show that if $a$ and $b$ are \textbf{not} relatively prime, then $ab$ need not divide $c$.
+\begin{center}
+    \text{Consider $a = 4$, $b=8$, and $c = 24$} \\
+    \begin{center}
+\fbox{
+  \parbox{0.4\textwidth}{
+    \centering
+    $\gcd(4,8) = 4 \neq 1$  and both $4 \ \mid \ 24$ and $8 \ \mid \ 24$,
+    \text{but} 
+    32 $\nmid$ 24
+  }
+}
+\end{center}
+\end{center}
+
+\noindent \textbf{4.}
+\textbf{(a)} Let $a,b,n \in \mathbb{Z}$ with $n > 1$. If $a$ mod $n$ = $a'$, and $b$ mod $n$ = b', prove that 
+\begin{center}
+    $(a+b)$ mod n = $(a' + b')$ mod $n$ and $(ab)$ mod n = $(a'b')$ mod n.
+\end{center}
+\begin{proof}
+    We must show that the remainder of $a + b$ is the same as the remainder of $a' + b'$ and that the remainder of $ab$ is the same as the remainder of $a'b'$. By the Division Algorithm,
+    \begin{align*}
+        &a \ \text{mod} \ n = a' \\
+        \Rightarrow \ &a = cn + a' \ \ \text{where $r = a', \ c\in \mathbb{Z}$} \\
+        \\ 
+        &b \ \text{mod} \ n = b' \\
+        \Rightarrow \ &b = dn + b' \ \ \text{where $r = b', \ d \in \mathbb{Z}$} \\
+    \end{align*}
+    Taking the sum of $a$ and $b$,
+    \begin{align*}
+        a + b &= cn + a' + dn + b' \\
+        &= cn + dn + a' + b'\\
+        &= (c + d)n + (a' + b') \ \ \text{where $r = a' + b'$}\\
+    \end{align*}
+    Although both $a'$ and $b'$ are less than $n$, their sum could exceed it and fail the Division Algorithm. By the Division Algorithm, let $q_{0}, r_{0} \in \mathbb{Z}$ s.t 
+    \begin{align*}
+        a' + b' &= q_{0}n + r_{0}. \\
+    \end{align*}
+    Plugging this expression back into a + b, 
+    \begin{align*}
+        a + b &= (c + d)n + q_{0}n + r_{0} \\
+        &= (c + d + q_{0})n + r_{0} \ \ \text{where $r = r_{0}$}
+    \end{align*}
+    
+    Since $r=r_{0}$ for both $a+b$ and $a' + b'$, $(a+b)$ mod $n = (a' + b')$ mod $n$. Finding the product of $a$ and $b$,
+    \begin{align*}
+        ab &= (cn + a')(dn + b') \\
+        &= cndn +cnb' +a'dn + a'b'\\
+        &= (cdn + cb' +a'd)n + a'b' \ \ \text{where $r = a'b'$}\\ 
+    \end{align*}
+    But, the product of $a'b'$ could also exceed n and violate the Division Algorithm. By the Division Algorithm, let $p_{0}, t_{0} \in \mathbb{Z}$ s.t
+    \begin{align*}
+        a'b' &= p_{0}n + t_{0}. \\
+    \end{align*}
+    Plugging this expression back into $ab$,
+    \begin{align*}
+        ab &= (cdn + cb' +a'd)n + p_{0}n + t_{0} \\ 
+        &= (cdn + cb' +a'd + p_{0})n + t_{0} \ \ \text{where $r = t_{0}$}\\
+    \end{align*}
+    Since $r = t_{0}$ for both $ab$ and $a'b'$, $(ab)$ mod $n = (a'b')$ mod $n$.
+\end{proof}
+
+\textbf{(b)} Use the result from part (a) to simplify the calculations of $(51 + 68)$ mod $7$ and $(82 \cdot 73)$ mod $7$ as much as possible.
+\begin{center}
+    \text{51 mod 7 = 2} \ \ \  \ \  \ \ \text{68 mod 7 = 5} \\
+    \begin{align*}
+    \Rightarrow \ \text{(51 + 68) mod 7} &= \text{(2 + 5) mod 7} \\
+    &= \boxed{0}
+\end{align*} 
+\end{center}
+
+\begin{center}
+    \text{82 mod 7 = 5} \ \ \  \ \  \ \ \text{73 mod 7 = 3} \\
+    \begin{align*}
+        \Rightarrow \ \text{(82 $\cdot$ 73) mod 7} &= \text{(5 $\cdot$ 3) mod 7} \\
+        &= \boxed{1}
+    \end{align*}
+\end{center}
+
+
+
+\end{document}

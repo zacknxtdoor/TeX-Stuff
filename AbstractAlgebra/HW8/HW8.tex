@@ -1,0 +1,186 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    3/23/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document} 
+\paragraph{\underline{8} \\ \\}
+\textbf{1.} \text{(a)} Find all normal subgroups of the symmetric group $S_3$. 
+\begin{center}
+    * $|S_3| = 6$ \\
+    \Rightarrow \ \text{Possible orders of subgroups of $S_3$ are 1, 2, 3, and 6}
+\end{center} 
+\begin{center}
+    \begin{tabular}[t]{l}
+     S_3 = \{(e), (123), (132) \\
+     \ \ \ \ \  \ \ \ (12), (13), (23)\}
+\end{tabular} \\
+\Rightarrow \text{Subgroups: $\{e\}, S_3, A_3, \{e, (12)\}, \{e, (13)\}, \{e, (23)\}$}
+\end{center}
+\begin{center}
+    \boxed{\text{$\{e\}$, since the identity commutes with everything}} \\
+    \boxed{\text{$S_3$, since the conjugation of elements in $S_3$ will, by closure, also be an element of $S_3$}}
+    \boxed{\text{$A_3$, since it is true that $A_n \lhd S_n$}}
+\end{center}
+\begin{center}
+    Remaining subgroups: $\{e, (12)\}, \{e, (13)\}, \{e, (23)\}$ \\
+    $\Rightarrow (13)(12)(13)^{-1} = (13)(12)(13) = (23) \notin \{e, (12)\}$ \\
+    $\Rightarrow (12)(13)(12)^{-1} = (12)(13)(12) = (23) \notin \{e, (13)\}$ \\
+    $\Rightarrow (13)(23)(13)^{-1} = (13)(23)(13) = (12) \notin \{e, (23)\}$ \\
+    $\Rightarrow$ \text{All choices of normal subgroups for $S_3$ have been exhausted}
+\end{center}
+\quad \quad \ \ \text{(b)} \ \begin{tabular}[t]{l}
+     In the group $U(100)$, let $H = \langle 21 \rangle = \{1, 21, 41, 61, 81\}$. Find $|9H|$ and $|13H|$ in the \\ factor group $U(100)/H$. 
+\end{tabular} \\
+\begin{center}
+    *$(aH)^n = a^n H \Rightarrow a^n \in H \ \text{if $|a| = n$}$
+\end{center} 
+\begin{center}
+    $9^{2} = 81 \ \text{mod}\ (100) = 81 \in H$ \\ 
+    \Rightarrow \boxed{|9H| = 2}
+\end{center}
+\begin{center}
+    $13^{4} = 28,561 \ \text{mod} \ (100) = 61 \in H$ \\
+    \Rightarrow \ \boxed{|13H| = 4}
+\end{center}
+\\
+\noindent \textbf{2.} \ \text{(a)} Prove that a factor group of a cyclic group is cyclic.
+\begin{proof}
+    Let $G = \langle a \rangle$ where $a \in G$ be a group and $H \lhd G$. We need to show that $G/H = \langle bH \rangle$ for some $bH \in G/H$. Since $G$ is cyclic and $b \in G$, 
+    \begin{align*}
+        bH &= (a^i)H \ \text{for some $i \in \mathbb{Z}$}\\
+        &= (aH)^i.
+    \end{align*}
+    This shows that every element in $G/H$ is a power of the left coset $aH$. Hence, $G/H =\langle aH \rangle$ given that $a \in G$ where $G$ is cyclic.
+\end{proof} \vspace{0.2em}
+\text{(b)} \begin{tabular}[t]{l}
+     Let $k$ be a positive divisor of a positive integer $n$. To what familiar group is $\mathbb{Z}_{n}/\langle  k \rangle$  \\
+     isomorphic?
+\end{tabular}
+\begin{align*}
+    \begin{tabular}[t]{l}
+         ex) $n = 10, k = 2$ \\
+         $\Rightarrow$ $|\mathbb{Z}_{10}| = 10$, $|\langle 2 \rangle| = 5 = \frac{10}{2}$ 
+    \end{tabular}
+\end{align*}
+\[
+\boxed{
+\begin{aligned}
+    &\text{Consider $|\mathbb{Z}_n / \langle k \rangle|$. By Lagrange's Theorem, this is the same as$\frac{|\mathbb{Z}_n|}{|\langle k \rangle|} = \frac{n}{(n/k)}= k$}.\\
+    &\text{We know $\mathbb{Z}_n$ for any $n \geq 1$ is cyclic and, by (a), $\mathbb{Z}_n / \langle k \rangle$ is cyclic. Given that $k > 0$, $\mathbb{Z}_{k}$ is } \\
+    &\text{also cyclic and $|\mathbb{Z}_k| = k$. So, it must be that $\mathbb{Z}_k \cong \mathbb{Z}_n/\langle k \rangle$}
+    
+\end{aligned}
+}
+\]
+\vspace{0.2em}
+
+\noindent \textbf{3.} \ \text{(a)} \begin{tabular}[t]{l}
+     Suppose $H$ is a subgroup and $N$ is a normal subgroup of a group $G$. Prove that \\
+     $HN := \{hn  \mid h \in H \ , \ n \in N \}$ is a subgroup of $G$.
+\end{tabular}
+\begin{proof}
+    Let $G$ be a group, $H \leq G$, and $N \lhd G$. Let $HN := \{hn  \mid h \in H \ , \ n \in N \}$. By the One-Step Subgroup Test, we want to show that $(h_1n_1)(h_2n_2)^{-1} \in HN$ where, by closure, $h_1h_2 \in H$ and $n_1n_2 \in N$. By the Socks-Shoes Property,
+    \begin{align*}
+        (h_1n_1)(h_2n_2)^{-1} &= (h_1n_1)(n_2^{-1}h_2^{-1}) \\
+        &= h_1(n_1n_2^{-1})h_{2}^{-1} \\
+        &= h_1n_3h_2^{-1} \ \text{where $n_3 = n_1n_2^{-1} \in N$}. 
+    \end{align*}
+    Since $H \leq G, H \subseteq G$ and $h_2^{-1} \in G$. Since $N$ is normal, we know that $gN = Ng \ \forall \ g \in G$. So, $\exists$ some $n_4 \in N$ s.t $n_3h_2^{-1} = h_2^{-1}n_4$.
+    \begin{align*}
+        (h_1n_1)(h_2n_2)^{-1} &= h_1(n_3h_2^{-1}) \\
+        &= h_1(h_2^{-1}n_4) \ \text{for some $n_4 \in N$} \\
+        &= (h_1h_2^{-1})n_4 \\
+        &= h_3n_4 \ \text{where $h_3 = h_1h_2^{-1} \in H$}.
+    \end{align*}
+ Thus, by the One-Step Subgroup Test, $HN \leq G$.
+\end{proof} \vspace{0.2em}
+\text{(b)} \begin{tabular}[t]{l}
+     Let $N$ be a normal subgroup of $G$, and let $H$ be a subgroup of $G$ that contains $N$. \\ Prove that $H$ is normal in $G$ if and only if $H/N$ is normal in $G/N$.
+\end{tabular}
+\begin{proof}
+    Let $G$ be a group, $N \lhd G$, and $H \leq G$ such that $N \subseteq H$. \\
+    ($\Rightarrow$) Suppose $H$ is normal in $G$. That means $gH = Hg \ \text{and} \ gHg^{-1} \subseteq H\ \forall \ g \in G$. We want to show that $H/N$ is normal in $G/N$, that is $(gN)H/N(gN)^{-1} \subseteq H/N$. Let $hN \in H/N$ and consider the expression 
+    \begin{align*}
+        gNhN(gN)^{-1} &= (ghg^{-1})N. \\
+    \end{align*}
+    Since $H$ is normal, $\exists$ some $h' \in H$ s.t $ghg^{-1} =h'$.
+    So, $gNhN(gN)^{-1} = h'N\in H/N$ which shows that $gNH/N(gN)^{-1} \subseteq H/N$. Hence, by Theorem 9.1, $H/N \lhd G/N$. \\
+    ($\Leftarrow$) Suppose $H/N \lhd \ G/N$. Using the implication above, this means $(ghg^{-1})N \in H/N \ \forall \ g \in G, h\in H$. Thus, $ghg^{-1}n = h_0n$ for some $h_0 \in H$. But, since $N \subseteq H$, $n \in H$. So, 
+    \begin{align*}
+        ghg^{-1}n(n^{-1}) &= h_0(n^{-1}) \\
+    \Rightarrow ghg^{-1}(nn^{-1}) &= h_0n^{-1} \\
+    \Rightarrow ghg^{-1} &= h' \ \text{where $h' = h_0n^{-1} \in H$}.
+    \end{align*}
+    So, $ghg^{-1} \in H$ which shows $gHg^{-1} \subseteq H$ and that $H \lhd G$.
+\end{proof} \vspace{0.2em}
+\noindent \textbf{4.} \ \text{(a)} \begin{tabular}[t]{l}
+     If $N$ is a normal subgroup of $G$ and $|G/N| = m$, show that $x^{m} \in N$ for all elements \\
+     $x \in G$.
+\end{tabular}
+\begin{proof}
+    Let $G$ be a group, $N \lhd G$, and $|G/N| = m$. Take some $xN \in G/N$ where $x\in G$. We know that $(xN)^{m} = (x^m)N.$ However, since $|G/N|$ is finite, by Corollary 4 of Lagrange's Theorem,
+    \begin{align*}
+        (xN)^{m} &= (x^m)N \\
+        &= eN \\
+        &= N.
+    \end{align*}
+    So, $(x^m)N = N$ which, by Lemma 2 from Chapter 7, shows that $x^m \in N \ \forall \ x^m \in G$.
+\end{proof} \vspace{0.2em}
+\text{(b)} \begin{tabular} [t]{l}
+     If $N$ is a normal subgroup of a group $G$ and $|N| = 2$, show that $N$ is contained in \\
+     the center of $G$.
+\end{tabular}
+\begin{proof}
+    Let $G$ be a group, $N \lhd G$, and $|N| = 2$ such that $N = \{e , n\}.$ Since $N$ is normal, $gNg^{-1} \subseteq N \ \forall \ g \in G$ which makes $gng^{-1} \in N$. If $gng^{-1} = e$, 
+    \begin{align*}
+        (g^{-1})gng^{-1}(g) &= (g^{-1})eg \\
+        \Rightarrow n &= e.
+    \end{align*}
+    But this implies $|N| = 1$ which contradicts our assumption. So, $gng^{-1}$ must be $n$. Thus,
+    \begin{align*}
+        gng^{-1}(g) &= n(g)\\
+        \Rightarrow gn &= ng.
+    \end{align*}
+    This is precisely the definition of commutativity between elements of $G$ and $N$. We know the identity is always in the center of a group. So, all elements of $N$ commute with $G$ and $N \in Z(G)$.
+\end{proof} \vspace{0.2em}
+\noindent \textbf{5.} \begin{tabular}[t]{l}
+     Suppose $G$ is a finite group, and $H$ is a normal subgroup of $G$. If the factor group $G/H$ \\
+     contains an element $aH$ of order $n$, show that $G$ must also contain an element of order $n$.
+\end{tabular}
+\begin{proof}
+    Let $G$ be a finite group and $H \lhd G$. Take $aH \in H/G$ s.t $|aH| = n$. This means $(aH)^{n} = a^{n}H = H$. So, by Lemma 2 from Chapter 7, $a^n \in H$. But, since $H$ is a subgroup of $G$, $H \subseteq G$ which in turn makes $a^n \in G$.  
+\end{proof} \vspace{0.2em}
+\noindent \textbf{6.} \begin{tabular}[t]{l}
+     If a group $G$ is non-Abelian, show that Aut($G$) is not cyclic.
+\end{tabular}
+\begin{proof}
+    Let $G$ be a non-Abelian group and, by contradiction, suppose Aut($G$) is cyclic. Since Inn($G$) only contain automorphisms, it must be a subgroup of Aut($G$). By the Fundamental Theorem of Cyclic Groups, this means Inn($G$) is also cyclic. By Theorem 9.4, Inn($G$) $\cong G/Z(G)$ where $Z(G)$ is the center of $G$. This implies that $G/Z(G)$ is also cyclic. But, by Theorem 9.3,  $G/Z(G)$ being cyclic is true when $G$ is Abelian which contradicts our assumption. So, Aut($G$) is not cyclic.
+\end{proof}
+\end{document}

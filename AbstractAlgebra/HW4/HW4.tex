@@ -1,0 +1,234 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    2/11/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document} 
+\paragraph{\underline{4} \\ \\}
+\noindent \textbf{1.} 
+\textbf{(a)} Prove that if $a$ is the only element of order $2$ in a group $G$, then $a$ must lie in the center of the group.
+\begin{proof}
+    Suppose $a \in G$ and is the only element in $G$ of order $2$. To show that $a \in Z(G)$, we must show that $\forall$ $t \in G$, $ta = at$. For any $x \in G$, consider the expression $xax^{-1}$. To show that $a = xax^{-1$, we need to show that $xax^{-1}$ is also of order $2$. Squaring $xax^{-1}$, 
+    \begin{align*}
+        (xax^{-1})^{2} &= (xax^{-1}) \cdot (xax^{-1}).
+    \end{align*}
+    Using the property of associativity from G,
+    \begin{align*}
+        (xax^{-1})^{2} &= x(ax^{-1}) \cdot (xa)x^{-1} \\
+        &= xa(x^{-1}) \cdot (x) ax^{-1} \\
+        &= xa(x^{-1}\cdot x)ax^{-1} \\
+        &= xaeax^{-1} \\
+        &= xaa^{2}ax^{-1} \\
+        &= xa^{2}a^{2}x^{-1} \\
+        &= xx^{-1} =e.
+    \end{align*}
+    Is $2$ the smallest positive integer that satisfies this equality? Consider 
+    \begin{align*}
+        xax^{-1} &= e.
+    \end{align*} 
+    Multiplying $x$ on the RHS and $x^{-1}$ on the LHS of both expressions, 
+    \begin{align*}
+        a &= x^{-1}(e)x \\
+        &= x^{-1}x \\ 
+        &= e.
+    \end{align*}But this implies that $|a| = 1$, which contradicts the assumption of $|a| = 2$. So, it must be that $|xax^{-1}| = 2$. But, $a$ is the only element in $G$ of order $2$. So,
+    \begin{align*}
+        a = xax^{-1}.
+    \end{align*}
+    Multiplying $x$ on the RHS of both expressions,
+    \begin{align*}
+        ax &= xax^{-1}x \\
+       \Rightarrow \ ax &= xa.
+    \end{align*}
+    So, $a \in Z(G)$.
+\end{proof}
+\textbf{(b)} Prove that no group can have exactly two elements of order $2$.
+\begin{proof}
+    By contradiction, let $a,b \in G$ s.t they're the \underline{only} elements of order $2$ in $G$. However, from (a), we know that $\forall \ c \in G$, we can use $a$ and $b$ to find more expressions of order $2$ such as $cac^{-1}$ or $cbc^{-1}$. $\therefore$ there can't be exactly two elements of order $2$ in any group. 
+\end{proof} 
+\vspace{0.2em}
+\textbf{2.} Let $G$ be a group, and let $H$ be a subgroup of $G$. For any fixed $x$ in $G$, define
+\begin{align*}
+    xHx^{-1} := \{xhx^{-1} \mid \  h \in H\}
+\end{align*} \vspace{0.2em}
+\indent \textbf{(a)} Prove that $xHx^{-1}$ is a subgroup of $G$.
+\begin{proof}
+    Is $xHx^{-1}$ nonempty? Since $H \leq G$, $e \in H$. So,
+    \begin{align*}
+        &xex^{-1} = xx^{-1} = e\\ 
+        \Rightarrow \ &e \in xHx^{-1}.
+    \end{align*}
+    So, $xHx^{-1}$ is nonempty. By the One-Step Subgroup Test, let $xHx^{-1}$ be a subset of $G$ and choose any two arbitrary elements of the form $xax^{-1}, xbx^{-1} \in xHx^{-1}$ where $a,b\in H$. To show that $xHx^{-1} \leq G$, we need to show that $(xax^{-1})(xbx^{-1})^{-1} \in xHx^{-1}$. Using the Socks-Shoes Property,
+    \begin{align*}
+        (xbx^{-1})^{-1} = (x^{-1})^{-1}b^{-1}x^{-1} = xb^{-1}x^{-1}.
+    \end{align*}
+    Applying the One-Step Subgroup Test,
+    \begin{align*}
+        (xax^{-1})(xb^{-1}x^{-1}) &= x(ax^{-1})(xb^{-1})x^{-1} \\
+        &= xa(x^{-1})(x)b^{-1}x^{-1} \\
+        &= xa(x^{-1}x)b^{-1}x^{-1} \\
+        &= x(ab^{-1})x^{-1}.
+    \end{align*}
+    Since $H \leq G$ and $a,b \in H$, $ab^{-1} \in H$. So, $x(ab^{-1})x^{-1} \in xHx^{-1}$ and $xHx^{-1} \leq G$.
+\end{proof}
+\indent \textbf{(b)} If $H$ is cyclic, prove that $xHx^{-1}$ is also cyclic.
+\begin{proof}
+    Suppose $H$ is cyclic. Then, $\exists$ some element $a \in H$ such that $\langle a \rangle = H$. To show that $xHx^{-1}$ is cyclic, we want to show that $\exists$ an element that generates $xHx^{-1}$. That is, $\exists$ an element $xax^{-1}$ where $a \in H$ s.t $\langle xax^{-1} \rangle = xHx^{-1}$. We know that $\forall \ h \in H$, we can rewrite it as 
+    \begin{align*}
+        h = a^{n} \ \text{for some $n \in \mathbb{Z}$}.
+    \end{align*}
+    Consider squaring and cubing $xax^{-1}$, 
+    \begin{align*}
+        (xax^{-1})^{2} &= (xax^{-1})(xax^{-1}) \\
+        &= x(ax^{-1})(xa)x^{-1} \\
+        &= xa(x^{-1})(x)ax^{-1} \\
+        &= xa(x^{-1}x)ax^{-1} \\
+        &= xaax^{-1} \\
+        &= xa^{2}x^{-1} \ \text{where $a^{2} \in H$} \\ \\
+        (xax^{-1})^{3} &= (xax^{-1})(xax^{-1})(xax^{-1}) \\
+        &= (xa^{2}x^{-1})(xax^{-1}) \\
+        &= x(a^{2}x^{-1})(xa)x^{-1} \\
+        &= xa^{2}(x^{-1})(x)ax^{-1} \\
+        &= xa^{2}(x^{-1}x)ax^{-1} \\
+        &= xa^{2}ax^{-1} \\
+        &= xa^{3}x^{-1} \ \text{where $a^{3} \in H$}.
+    \end{align*}
+    In general, consider the $n -1$ power of $xax^{-1}$,
+    \begin{align*}
+        (xax^{-1})^{n-1} &= \underbrace{(xa_{n-1}x^{-1})(xa_{n-2}x^{-1})(xa_{n-3}x^{-1})\ldots}_{\text{$n-2$ terms}} \ (xax^{-1}) \\
+        &= (xa^{n-2}x^{-1})(xax^{-1}) \\
+        &= x(a^{n-2}x^{-1})(xa)x^{-1} \\
+        &= xa^{n-2}(x^{-1})(x)ax^{-1} \\
+        &= xa^{n-2}(x^{-1}x)ax^{-1} \\
+        &= xa^{n-2}ax^{-1} \\
+        &= xa^{n-1}x^{-1} \ \text{where $a^{n-1} \in H$}.
+    \end{align*}
+    So, 
+    \begin{align*}
+        \langle xax^{-1} \rangle &= \{xax^{-1}, (xax^{-1})^{2}, (xax^{-1})^{3}\ldots, (xax^{-1})^{n-1}, e\} \\
+        &= xHx^{-1}.
+    \end{align*}
+    So, $xHx^{-1}$ is cyclic.
+\end{proof}
+\indent \textbf{(c)} If $H$ is Abelian, prove that $xHx^{-1}$ is also Abelian.
+\begin{proof}
+    Suppose $H$ is Abelian. Let $xax^{-1}, xbx^{-1} \in xHx^{-1}$ where $a,b \in H$. We want to show that $(xax^{-1})(xbx^{-1}) = (xbx^{-1})(xax^{-1})$. Taking the product of the LHS,
+    \begin{align*}
+        (xax^{-1})(xbx^{-1}) &= x(ax^{-1})(xb)x^{-1} \\
+        &= xa(x^{-1})(x)bx^{-1} \\
+        &= xa(x^{-1}x)bx^{-1} \\
+        &= x(ab)x^{-1} \ \text{where $ab \in H$}.
+    \end{align*}
+    But, since $H$ is Abelian, $ab = ba$ $\forall \ a,b \in H$. So,
+    \begin{align*}
+        (xax^{-1})(xbx^{-1}) &= x(ba)x^{-1} \\
+        &= xb(x^{-1}x)ax^{-1} \\
+        &= xb(x^{-1})(x)ax^{-1} \\
+        &= x(bx^{-1})(xa)x^{-1} \\
+        &= (xbx^{-1})(xax^{-1}).
+    \end{align*}
+    So, $xHx^{-1}$ is Abelian.
+\end{proof}  
+\hspace{0.2em}
+\textbf{3.}
+\textbf{(a)} In $G_{1} = (\mathbb{Z}_{24}, +)$, list all generators for the subgroup of order $8$. More generally, if $G_{2}$ = $\langle{a}\rangle$ with $|a| = 24$, list all the generators for the subgroups of order $8$.
+\begin{align*}
+    * \ \mathbb{Z}_{n} = \{0, 1, 2, \dots, n-1\}, \ \text{Divisors of $24$: $1, 2, 3, 4, 6, 8, 12, 24$}\\ 
+\end{align*}
+\underline{Divisors of $24$}
+\begin{align*}
+    1) \ \boxed{\langle{3}\rangle = \{3, 6, 9, 12, 15, 18, 21, 0\} }
+\end{align*} \\
+\underline{Non-Divisors of $24$}
+\begin{align*}
+    2) \ &\boxed{\langle{9}\rangle = \{9, 18, 3, 12, 21, 6, 15, 0\} } \\
+    3) \ &\boxed{\langle{15}\rangle = \{15, 6, 21, 12, 3, 18, 9, 0\} } \\ 
+    4) \ &\boxed{\langle{21}\rangle = \{21, 18, 15, 12, 9, 6, 3, 0\} }
+\end{align*} \\
+More generally,
+\begin{align*}
+    &\boxed{\langle{a^{3}}\rangle = \{a^{3}, a^{6}, a^{9}, a^{12}, a^{15}, a^{18}, a^{21}, e\}} \\
+    &\boxed{\langle a^{9} \rangle = \{a^{9}, a^{18}, a^{3}, a^{12}, a^{21}, a^{6}, a^{15}, e\}} \\
+    &\boxed{\langle a^{15} \rangle = \{a^{15}, a^{6}, a^{21}, a^{12}, a^{3}, a^{18}, a^{9}, e} \\
+    &\boxed{\langle a^{21} \rangle = \{a^{21}, a^{18}, a^{15}, a^{12}, a^{9}, a^{6}, a^{3}, e}
+\end{align*}
+\indent \textbf{(b)} Let $a$ belong to a group with $|a| = 100$. Find $|a^{98}|$ and $|a^{70}|$.
+\begin{align*}
+    * \ |a^{k}| &= |\frac{n}{\gcd(n,k)}| \\ \\
+    \Rightarrow \ |a^{98}| &= \frac{100}{\gcd(100, 98)} = \frac{100}{2} = \boxed{50} \\ \\
+    \Rightarrow \ |a^{70}| &= \frac{100}{\gcd(100, 70)} = \frac{100}{10} = \boxed{10}
+\end{align*}
+\vspace{0.2 em}
+\textbf{4.} Give an example of a group with exactly $7$ subgroups (including the trivial group and the group itself). Generalize to a group with exactly $n$ subgroups for any positive integer $n.$ \\ \\
+Consider the cyclic group $(\mathbb{Z}_{64}, +)$
+\begin{align*}
+    &- \{e\} \  \xrightarrow[]{} \text{trivial group} \\
+    &- \{1,2,3,\ldots,63, e\} \ \xrightarrow[]{} \text{entire group} \ (\langle 1 \rangle) \\
+    &- \{2, 4, 6, 8, \ldots, 62, e\} \ \xrightarrow[]{} \langle 2 \rangle \\
+    &- \{4, 8 , 12, 16, \ldots, 60, e\} \ \xrightarrow[]{} \langle 4 \rangle \\
+    &- \{8, 16, 24, 32, 40, 48, 56, e\} \ \xrightarrow[]{} \langle 8 \rangle \\
+    &- \{16, 32, 38, e\} \ \xrightarrow[]{} \langle 16 \rangle \\
+    &- \{32, e\} \ \xrightarrow[]{} \langle 32 \rangle \\
+\end{align*}
+Note that $64 = 2^{\underline{6}}$ and has $\underline{7}$ subgroups. If the order of a cyclic group is equal to a prime number raised to a power, the total divisors, or subgroups of the group, is equal to one less the power. In general, if a group $G$ is of order $k$, it will have exactly $n$ subgroups if \begin{align*}
+    k = p^{n-1} \ \text{where $p$ is prime}
+\end{align*}
+for any $n \in \mathbb{Z}$. \\
+\vspace{0.2 em}
+\textbf{5.} \textbf{(a)} If $H$ and $K$ are subgroups of a group $G$, show that $H \cap K$ is also a subgroup of $G.$ 
+\begin{proof}
+    Suppose $H$ and $K$ are subgroups of $G$. By the One-Step Subgroup Test, we need to show that $ab^{-1} \in H \cap K \ \forall \ a,b \in H \cap K$. For any $a,b \in H \ \cap K$, $a$ and $b$ are in both $H$ and $K$. So, we have to show that $ab^{-1}$ is in both $H$ and $K$. But, since $H \leq G$ and $K \leq G$, they both satisfy the One-Step Subgroup Test. So, $\exists$ $ab^{-1} \in H \ \forall \ a,b \in H$ and $\exists \ ab^{-1} \in K \ \forall \ a,b \in K$. So, $ab^{-1} \in H \cap K$. $\therefore \ H \cap K \leq G.$
+\end{proof}
+\indent \textbf{(b)} Let $a$ and $b$ belong to a group $G$. If $|a|$ and $|b|$ are finite and relatively prime, show that $\langle{a}\rangle \cap \langle{b}\rangle = \langle{e}\rangle$. \\ \\
+\begin{proof}
+    Suppose $a,b \in G$ and the orders of $a$ and $b$ are finite and relatively prime. Let $n = |a|$ and $m = |b|$. By Bezout's Identity, $\exists$ $s, t \in \mathbb{Z}$ s.t
+    \begin{align*}
+        ns + mt = 1.
+    \end{align*}
+    Let $x \in \langle a \rangle \cap \langle b \rangle$. Then, $x = a^{t}$ for some $t \in \mathbb{Z}$ and $x = b^{h}$ for some $h \in \mathbb{Z}$. But,
+    \begin{align*}
+        &|a| = n \ \Rightarrow a^{n} = e \\
+        &|b| = m \ \Rightarrow b^{m} = e. 
+    \end{align*}
+    So, 
+    \begin{align*}
+        x^{n} &= (a^t)^{n} = a^{tn} = (a^{n})^{t} = e^{t} = e \\
+        x^{m} &= (b^h)^{m} = b^{hm} = (b^{m})^{h} = e^h = e.
+    \end{align*}
+    That means we can rewrite $x$ as 
+    \begin{align*}
+        x &= x^{ns + mt} \\
+        &= x^{ns} \cdot x^{mt} \\
+        &= (x^{n})^s \cdot (x^{m})^{t} \\
+        &= e^{s} \cdot e^{t} \\
+        &= e \\
+        &= \{e\}.
+    \end{align*}
+    So, $\langle{a}\rangle \cap \langle{b}\rangle = \{{e}\}$.
+\end{proof}
+\end{document}

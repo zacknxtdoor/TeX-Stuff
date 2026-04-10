@@ -1,0 +1,167 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    1/28/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document}
+
+\paragraph{\underline{2} \\ \\} 
+
+\textbf{1.} \textbf{(a)} \text{Let $p_{1},p_{2},\ldots,p_{n}$} be primes. Show that the expression $p_{1}p_{2}\ldots p_{n} + 1$ is divisible by none of these primes.
+\begin{proof}
+    Let $p\in \{p_{1}, p_{2}, \ldots, p_{n}\}$. By contradiction, assume
+    \begin{align*}
+        p \mid p_{1}p_{2}\ldots p_{n} + 1.
+    \end{align*}
+    This implies that $\exists \ s\in \mathbb{Z}$ s.t
+    \begin{align*}
+        & p_1p_2\ldots p_n + 1 = ps.
+    \end{align*}
+    But, since $p$ is prime, it's divisors can only be $1$ or $p$. Since every prime number is greater than 1, $p \nmid 1$. So, the only way for this expression to be true is if
+    \begin{align*}
+        p_1p_2\ldots p_n + 1 = p
+    \end{align*}
+    which we know cannot be true. $\therefore \ p \nmid p_1p_2\ldots p_n + 1$.
+\end{proof}
+\textbf{(b)} Use part (a) to prove that there are infinitely many primes.
+\begin{proof}
+    By contradiction, assume that there are finitely many primes. There must exist some maximum prime, call it $p_{f}$. By (a), 
+    \begin{align*}
+        &p_{1}, p_{2}, \ldots , p_{f} \nmid p_{1}p_{2}\ldots p_{f} + 1. 
+    \end{align*}
+    Let $m = p_{1}p_{2}\ldots p_{f} + 1 \in \mathbb{Z}$. By the Fundamental Theorem of Arithmetic, m is either a prime or a product of primes. But if m is a prime,
+    \begin{align*}
+        &p_{f} < p_{1}p_{2}\ldots p_{f} + 1 \\
+        &p_{f} < m
+    \end{align*}
+    contradicts our assumption. So, $m$ must be a product of primes, which implies $\exists$ a prime $p_{i}$ that divides it. But that contradicts (a) and $\therefore m$ can not be a product of primes. Thus, this contradicts the Fundamental Theorem of Arithmetic, and shows that the assumption of $p_{f}$ being the largest prime must be false. $\therefore$ there must be infinitely many primes.
+\end{proof}
+
+\textbf{2.} For every positive integer $n$, prove that a set with exactly $n$ elements has exactly $2^{n}$ subsets (including the empty set and the entire set).
+\begin{proof}
+    We proceed by induction on $n$. \\
+    \indent{\underline{Base Case}:} Let $n = 1$. Then, the set $\{1\}$ has the subsets
+    \begin{align*}
+        \underbrace{\emptyset, \{1\}}_{2^{1}}
+    \end{align*}
+    which amount to $2^{1}$ subsets. \\
+    \indent{\underline{Induction Step}:} Let $n = k$ where k is some integer greater than $1$. Assume the set $S_{1} = \{1, 2, 3,\ldots, k\}$ has the subsets
+    \begin{align*}
+        \underbrace{\emptyset, \{1\}, \{2\}, \ldots, \{1, 2, 3,\ldots, k\}}_{2^{k}}
+    \end{align*}
+    which amount to $2^{k}$ subsets. We must show that for $n = k + 1$ the set $S_{2} = \{1, 2, 3,\ldots, k, k + 1\}$ has $2^{k+1}$ subsets. But, since $S_{1}$ is already contained in $S_{2}$, all of $S_{1}$'s subsets must also be a subset of $S_{2}$. Thus, the current number of subsets in $S_{2}$ is
+    \begin{align*}
+        2^{k} + \underbrace{\{1, 2, 3, \ldots, k, k+1\} + \ldots}_{\text{remaining amount of subsets}}.
+    \end{align*}
+    But, the only difference between the subsets of $S_{1}$ and the remaining subsets of $S_{2}$ is the element $k + 1$. So, the remaining subsets, excluding $k + 1$, must each be a subset of $S_{1}$ which we know has $2^{k}$ subsets. So the total subsets of $S_{2}$ must be
+    \begin{align*}
+        2^{k} + 2^{k} &= 2(2^{k}) \\
+        &= 2^{k+1}.
+    \end{align*}
+    So, a set of $n$ elements has $2^{n}$ subsets for $n > 0$.
+\end{proof}
+
+\textbf{3.} The Fibonacci numbers are $1,1,2,3,5,8, 13, 21, 34, \ldots$. In general, the Fibonacci numbers are defined by $f_{1} = 1$, $f_{2} = 1$, and for $n \geq 3$, $f_{n} = f_{n-1} + f_{n-2}$. Prove that the $n$th Fibonacci number $f_{n}$ satisfies $f_{n} < 2^{n}$ for all $n \geq 1$.
+\begin{proof}
+    We proceed by induction on $n$. \\
+    \indent{\underline{Base Case}:} Let $n=1$. Then,
+    \begin{align*}
+        f_{1} &= 1 \\
+        \Rightarrow \ 1 &< 2^{1} = 2 \ \checkmark
+    \end{align*}  \\
+    \indent{\underline{Induction Step}:} Let $n=k$ where $k \in \mathbb{Z}$ and $k \geq 1$. Assume that $f_{k} < 2^{k}$. We must show that for $n = k + 1$, $f_{k+1} < 2^{k+1}$. By the definition of the Fibonacci numbers, we know that
+    \begin{align*}
+        f_{k + 1} = f_{k} + f_{k-1}.
+    \end{align*}
+    But, we know that $f_{k} < 2^{k}$. So,
+    \begin{align*}
+        f_{k + 1} < 2^{k} + f_{k-1}.
+    \end{align*}
+    But, $f_{k-1} < f_{k}$ which implies $f_{k-1} < 2^{k}$. Thus, 
+    \begin{align*}
+        f_{k + 1} &< 2^{k} + 2^{k} \\
+        \Rightarrow \ f_{k + 1} &< 2(2^{k}) \\
+        \Rightarrow \ f_{k + 1} &< 2^{k + 1}.
+    \end{align*}
+    $\therefore$ $f_{n} < 2^{n}$ holds $\forall$ $n \geq 1$
+\end{proof}
+
+\textbf{4.} Let $a,b \in \mathbb{R}$, define $a \sim b$ if $a-b$ is an integer. Show that $\sim$ is an equivelance relation on $\mathbb{R}$. Describe the equivalence classes produced by this relation. \\ \\
+ To show that $\sim$ is an equivalence relation on $\mathbb{R}$, we must show that the properties of one hold. \\
+ \indent{\underline{Reflexivity}:} Let $a \in \mathbb{R}$. We want to show that $a \sim a$. That is,
+ \begin{align*}
+     &a -a \in \mathbb{Z} \ ? \\
+    \Rightarrow \ &0 \in \mathbb{Z} \ \checkmark
+ \end{align*}
+\indent{\underline{Symmetry}:} Suppose $a \sim b$. We want to show that $b \sim a$. That is,
+\begin{align*}
+    b - a \in \mathbb{Z} \ ?
+\end{align*}
+Since $a \sim b$, $a-b \in \mathbb{Z}$ $\therefore$ $b-a \in \mathbb{Z}$ but with the signs flipped. \\ \\
+\indent{\underline{Transitivity}:} Suppose $a \sim b$ and $b \sim c$. We want to show that $a \sim c$. That is
+\begin{align*}
+    a - c \in \mathbb{Z} \ ?
+\end{align*}
+Since $a \sim b$ and $b \sim c$,
+\begin{align*}
+    &a-b, \ b-c \in \mathbb{Z}\\
+    \Rightarrow \ &(a-b) + (b-c) \in \mathbb{Z} \\
+    \Rightarrow \ &a-c \in \mathbb{Z} \ \checkmark
+\end{align*}
+Thus, $\sim$ is an equivalence relation on $\mathbb{R}$.
+ Equivalence classes produced by $\sim$ are of the form 
+\begin{align*}
+    \underbrace{[a] = \{x.a \mid x,a \in \mathbb{R}, x \sim a\}}_{\text{the class of all real numbers with $a$ following the decimal point}}
+\end{align*} 
+\textbf{5.} Suppose $f : A \xrightarrow{} B$ and $g: B \xrightarrow{}C$ are two functions. \\
+\indent{\textbf{(a)} If $f$ and $g$ are one-to-one, show that the function $gf$ (the composition $g \circ f$) is also one-to-one.
+\begin{proof}
+    Suppose $f$ and $g$ are one-to-one. Let $a_{1}, a_{2} \in A$ such that
+    \begin{align*}
+        gf(a_{1}) = gf(a_{2}).
+    \end{align*}
+    Since $g$ is one-to-one, this equality implies that
+    \begin{align*}
+       f(a_{1}) = f(a_2).
+    \end{align*}
+    But, $f$ is also one-to-one. So,
+    \begin{align*}
+        a_1 = a_2
+    \end{align*}
+    implies $g \circ f$ is one-to-one.
+\end{proof}
+\indent{\textbf{(b)}} If $f$ and $g$ are onto, show that the function $gf$ is also onto. 
+\begin{proof}
+    Suppose $f$ and $g$ are onto. Let $a_{1} \in A$ and $b_{1} \in B$ such that 
+    \begin{align*}
+        gf(a_1) = g(b_1).
+    \end{align*}
+    Since $f$ is onto, $\exists$ some $a_1 \in A$ s.t $f(a_1) = b_1$. But, $g$ is also onto, which implies that $\exists$ some $c_1 \in C$ s.t $g(b_1) = c_1$. Rewriting the composition,
+    \begin{align*}
+        gf(a_1) = c_1
+    \end{align*}
+    shows that $g \circ f$ is onto.
+\end{proof}
+\end{document}

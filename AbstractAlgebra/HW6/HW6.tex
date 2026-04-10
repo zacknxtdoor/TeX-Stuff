@@ -1,0 +1,168 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    3/4/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document} 
+\paragraph{\underline{6} \\ \\}
+\textbf{1.} \quad \text{(a)} Find all the left cosets of the set $\{1, 11\}$ in $U(30)$. 
+\begin{align*}
+\Rightarrow H &= \{1, 11\}, \ G = U(30) \\ 
+    * \ U(30)   &= \{1, 7, 11, 13, 17, 19, 23, 29\}
+\end{align*}
+    \begin{center}
+\begin{tabular}{|c|c|}
+\hline
+$a$ & $aH$ mod 30 \\
+\hline
+$1$  & $1\{1, 11\} = \{1, 11\}$ \\
+$7$  & $7 \{1, 11\} = \{7, 17\}$ \\
+$11$ & $11\{1, 11\} = \{11, 1\}$ \\
+$13$ & $13\{1, 11\} = \{13, 23\}$ \\
+$17$ & $17\{1, 11\} = \{17, 7\}$ \\ 
+$19$ & $19\{1, 11\} = \{19, 29\}$ \\
+$23$ & $23\{1, 11\} = \{23, 13\}$ \\
+$29$ & $29\{1, 11\} = \{29, 19\}$ \\
+\hline
+\end{tabular}
+\end{center}
+\quad \quad \text{(b)} Let $n$ be a positive integer, and let $H = \{0, \pm n, \pm 2n, \pm 3n, \ldots\}.$ Find all the left cosets of $H$ in $\mathbb{Z}$. How many of these left cosets are there? \\
+\begin{align*} 
+    * \ G &= \mathbb{Z} \  \\ \\
+    \ 0+H &= H \\
+     \ 1+H &= \{\cdots, -n + 1, 1, 1 + n \cdots\} \\ 
+     2+ H &= \{\cdots, 2 - n, 2, \ 2 + n, \ 2 + 2n, \cdots \} \\
+    \vdots \\ 
+    \Rightarrow \ n + H &= \{\cdots, n -2n, n - n, n, n + n, n + 2n, \cdots\}\\
+    &= \{\cdots, -n, 0, n, 2n, 3n, \cdots \} = H \\
+    \end{align*}
+    By Lemma 3, since $n \in 0 + H, n + H = 0 + H = H$. So, after every $n$ cycles, a left coset duplicates H. So, it must be that the number of distinct left cosets are
+    \begin{align*}
+        \underbrace{0 + H, 1 + H, 2 + H, \cdots, n-1 + H}_{\text{$n$ left cosets}}
+    \end{align*}.
+     So, there are \boxed{\text{$n$ left cosets of $H$ in $\mathbb{Z}$}.} \\ \\
+\vspace{0.2em}
+\textbf{2.} Let $a$ and $b$ be non-identity elements of different orders in a group $G$ that has order $155$. Prove that the only subgroup of $G$ that contains both $a$ and $b$ is $G$ itself. 
+\begin{proof}
+    Let $G$ be a group and $a,b \in G$ s.t
+    \begin{align*}
+        a \neq e \neq b \ \ \ \text{and} \ \ \ |G| = 155.
+    \end{align*}
+    Let $H \leq G$. We want to show that if $a,b \in H$ then
+    \begin{align*}
+        H = G.
+    \end{align*}
+    By Lagrange's Theorem, we know $\frac{|G|}{|H|}.$ Since $|G| = 155$, it's divisors, which are the possible orders for $|H|$, are 1, 5, 31, and 155. But, by Corollary 2, $|a|$ \underline{and} $|b|$ must divide both $|H|$ and $|G|$. Since $a,b \in H$, $|H| \neq 1$. We know $|a| \neq |b|$. So, if either $|a| = 155$ or $|b| = 155$, by Corollary 2 that would make $|H|$ divisible by 155. But, if $|H|$ divides $|G|$ and $|G|$ divides $|H|$, by the definition of divisibility
+    \begin{align*}
+        |H| &= |G|m \ \ \text{and} \ \ |G| = |H|n \ \ \text{for some $n, m \in \mathbb{Z}$}.\\ \\
+        \Rightarrow \ |H| &= (|H|n)m \\
+        &= |H|(nm) \ \Rightarrow n = m=1.
+    \end{align*}
+    So, this forces $|G| = |H|$, showing that $G = H$. Suppose that
+    \begin{align*}
+        |a| = 5 \ &\text{and} \ |b| = 31 \\
+        &\text{or} \\
+        |a| = 31 \ &\text{and} \ |b| = 5.
+    \end{align*}
+   By Corollary 2, $|H|$ must be 155 to divide $a$ and $b$. Hence, $H = G$.
+\end{proof}
+\vspace{0.2em}
+\textbf{3.} Let $G$ be a group with $|G| = pq$ where $p$ and $q$ are prime. Prove that every proper subgroup of $G$ is cyclic.
+\begin{proof}
+    Let $G$ be a group in which $|G| = pq$ where $p$ and $q$ are prime. Let $H$ be a proper subgroup of $G$. By Lagrange's Theorem, we know $\frac{|G|}{|H|}$. So, the only divisors of $|G|$, which are the possible orders of $H$, are $1, p, q$ and $pq$. But, since $H$ is a proper subgroup of $G$, 
+    \begin{align*}
+        H \neq G \ \Rightarrow \ |H| \neq |G|.
+    \end{align*}
+    So, the only possible orders of $H$ are $1, p$ and $q$. The proper subgroup of order 1 is cyclic because $\langle e \rangle = \{e\}$. So, the remaining options are $p$ and $q$. By Corollary 3, any group of order $p$ or $q$ are also cyclic. $\therefore$ every subgroup of $G$ is cyclic.
+\end{proof}
+\vspace{0.2em}
+\textbf{4.} Suppose $G$ is a non-Abelian group with $|G|=8$. Prove that $G$ must have an element of order 4.
+\begin{proof}
+    Let $G$ be a non-Abelian group with $|G| = 8$ and $a \in G$. Since $G$ is finite, by Corollary 2, the order of all elements in $G$ must divide $|G|$. The divisors of $|G|$ are 1,2, 4 and 8. $|a| \neq 8$ because that would imply $G$ is cyclic, which would make it Abelian. Also, $|a| = 1$ implies that $a$ is the identity. Consider $a$ to be any non-identity element of order 2, that is
+    \begin{align*}
+        a^{2} &= e.
+    \end{align*}
+    To prove that $G$ must have an element of order 4, we need to show that elements of order 2 make $G$ Abelian. By HW 3 \# 4, groups of order 2 elements are Abelian, which contradicts $G$ being non-Abelian here. So, the only remaining option for $|a|$ is 4. Hence, $G$ must have an element of order 4.
+\end{proof}
+\vspace{0.2em}
+\textbf{5.} For any integer $n$ greater than 1, let $\phi(n)$ denote the number of positive integers less than $n$ that are relatively prime to $n$. Prove that if $a$ is any integer relatively prime with $n$, then $a^{\phi(n)}$ mod $n = 1.$ 
+\begin{proof}
+Let $n\in \mathbb{Z}$ such that $n > 1$ and let $\phi(n)$ denote the number of positive integers less than $n$ that are relatively prime to $n$. Choose any $a \in \mathbb{Z}$ such that $a$ is relatively prime to $n$. We want to show that $a^{\phi(n)}$ mod $n = 1$. Recall the group $U(n)$ which contains all integers less than and relatively prime to n. We can rewrite the expression $a^{\phi(n)}$ mod $n$ as 
+\begin{align*}
+    a^{\phi(n)} \ \text{mod} \ n = a^{|U(n)|} \ \text{mod} \ n.
+\end{align*}
+But, since $a$ is relatively prime to $n$, $a \in U(n)$. Since $U(n)$ is finite, by Corollary 4
+\begin{align*}
+    a^{U(n)} = e.
+\end{align*}
+So,
+\begin{align*}
+    a^{\phi(n)} \ \text{mod} \ n &= a^{|U(n)|} \ \text{mod} \ n \\
+    &= e \ \text{mod} \ n.
+\end{align*}
+But, the identity in $U(n)$ is 1. So,
+\begin{align*}
+     a^{\phi(n)} \ \text{mod} \ n &= 1 \ \text{mod} \ n \\
+     &= 1.
+\end{align*}
+Thus, $a^{\phi(n)} \ \text{mod} \ n = 1$.
+\end{proof}
+\vspace{0.2em}
+\textbf{6.} Prove that if $G$ is a finite group, the index of $Z(G)$ cannot be prime.
+\begin{proof}
+    Let $G$ be a finite group. By contradiction, suppose $|G:Z(G)| = p$ where $p$ is prime. Let $a \in G$ such that $a \notin Z(G)$. Consider $C(a)$, the centralizer of $a$. We know all elements in $C(a)$ commute with $a$. Let $b \in Z(G)$ such that $b$ commutes with every element in $G$. That also means $b$ commutes with $a$, implying $b \in C(a)$. So, that means
+    \begin{align*}
+        Z(G) &\leq C(a).
+    \end{align*}
+    By Lagrange's Theorem, $|Z(G)|$ divides $|C(a)|$. Using the definition of divisibility,
+    \begin{align*}
+        |C(a)| = |Z(G)|n \ \ \text{where $n \in \mathbb{Z}$}.
+    \end{align*}
+    Since the centralizer of a group $G$ is a subgroup of $G$, by Corollary 1,
+    \begin{align*}
+        |G:C(a)| &= \frac{|G|}{|C(a)|} \\ \\
+        &= \frac{|G|}{|Z(G)|n} \\ \\
+        &= \frac{|G|}{|Z(G)|} \cdot \frac{1}{n} \\ \\
+        &= \frac{p}{n}.
+    \end{align*}
+    So, $n \mid p$. But since $p$ is prime, either $n = p$ or $n = 1$. \\ \\
+    \textbf{Case 1}: If $n = 1$, that would mean
+    \begin{align*}
+        |C(a)| = |Z(G)|.
+    \end{align*}
+  But, if these groups have the same order and $Z(G) \leq C(a)$, it must be that $C(a) = Z(G)$. But, since $a \in C(a)$ and $C(a) = Z(G)$, that means $a \in Z(G)$ which contradicts our assumption. \\ \\
+    \textbf{Case 2}: If $n = p$, that means 
+    \begin{align*}
+        \frac{|G|}{|C(a)|} & = 1 \\ \\
+        \Rightarrow |G| &= |C(a)|.
+    \end{align*}
+    Since $C(a) \leq G$, it must be that $G = C(a)$. But, this equality implies that every element in $G$ commutes with $a$, making $a \in Z(G)$ which contradicts our assumption.
+\end{proof}
+So, it must be that the index of $Z(G)$ cannot be prime.
+\end{document}

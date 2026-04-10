@@ -1,0 +1,304 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    2/25/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document} 
+\paragraph{\underline{5} \\ \\}
+\textbf{1.} Consider the following permutations given in array notation:
+\begin{center}
+    $\alpha = \begin{bmatrix}
+        1& 2 & 3 & 4 & 5 & 6 & 7 & 8  \\
+        2 & 3 & 4 & 5 & 1 & 7 & 8 & 6
+    \end{bmatrix}$ \ \ \ \ \  \ \ \
+    $\beta = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        1 & 3 &8 & 7 & 6 & 5 & 2 & 4
+    \end{bmatrix}$
+\end{center} 
+\vspace{1em}
+\qquad \text{(a)} Write $\alpha$, $\beta$, and $\alpha\beta$ as products of disjoint cycles.
+\begin{align*}
+        &\boxed{\alpha = (12345)(678)} \\  
+        &\boxed{\beta = (23847)(56)} \\ \\
+        * &\text{$\alpha\beta$ uses function composition} \\
+        \Rightarrow \ &\boxed{\alpha\beta = (12485736)}
+\end{align*}
+\qquad \text{(b)} Compute each of the inverses $\alpha^{-1}$, $\beta^{-1}$, and $(\alpha\beta)^{-1}$. \\ 
+\begin{center}
+     * Taking the inverse of a permutation $\alpha$ $\Rightarrow$ reverse the original permutation
+\end{center}
+\begin{align*}
+     \ &\boxed{\alpha^{-1} = \begin{bmatrix}
+        1 &  2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        5 & 1 & 2 & 3 & 4 & 8 & 6 & 7
+    \end{bmatrix}}  \\ \\
+    &\boxed{\beta^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        1 & 7 & 2 & 8 & 6 & 5 & 4 & 3
+    \end{bmatrix}} \\ \\
+    &\boxed{(\alpha\beta)^{-1} = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        6 & 1 & 7 & 2 & 8 & 3 & 5  & 4
+    \end{bmatrix}} 
+\end{align*}
+\qquad \text{(c)} Determine the order of each of $\alpha$, $\beta$, and $\alpha\beta$. \\ 
+\begin{center}
+    * Order of a permutation $\Rightarrow$ lcm(len($c_1$), len($c_2$), \ldots, len($c_n$))
+\end{center}
+\begin{align*}
+    |\alpha| &= \text{lcm(len(12345), len(678))} \\
+    &= \text{lcm}(5, 3) = \boxed{15} \\ \\
+    |\beta| &= \text{lcm(len(23847), len(56))} \\
+    &= \text{lcm(5, 2)} = \boxed{10} \\ \\
+    |\alpha \beta| &= \text{lcm(len(12485736))} \\
+    &= \text{lcm(8)} = \boxed{8}
+\end{align*}
+\qquad \text{(d)} Determine whether each of $\alpha$, $\beta$, and $\alpha \beta$ is even or odd. \\ 
+\begin{center}
+    * \text{Is the \# of transpositions even or odd?} 
+\end{center}
+\begin{align*}
+    &\alpha = \underbrace{(15)(14)(13)(12)(68)(67)}_{\text{$6$ transpositions}} \\
+    \Rightarrow \ &\boxed{$\alpha$ is even} \\ \\
+    &\beta = \underbrace{(27)(24)(28)(23)(56)}_{\text{$5$ transpositions}} \\
+    \Rightarrow \ &\boxed{$\beta$ is odd} \\ \\
+    &\alpha \beta = \underbrace{(16)(13)(17)(15)(18)(14)(12)}_{\text{$7$ transpositions}} \\
+    \Rightarrow \ &\boxed{$\alpha \beta$ is odd}
+\end{align*}
+\textbf{2.} \quad \text{(a)} Prove that the alternating group $A_n$ is a subgroup of the symmetric group $S_n$.
+\begin{proof}
+    Let even permutations $p_{i}, p_{j} \in A_n$. By the One-Step Subgroup Test, we need to show that $p_i(p_j)^{-1} \in A_n$ for all  $p_i, p_j \in A_n$ to prove that $A_n \leq S_n$. Taking the inverse of an even permutation reverses the mapping of the original, but the length is unchanged. So,
+    \begin{align*}
+        p_i(p_j)^{-1} = p_ip_k \ \text{where $p_k \in A_n$}.
+    \end{align*}
+    Since $p_i$ and $p_k$ are even permutations, both can be expressed as an even \# of transpositions. So, the composition of $p_ip_k$ results in the sum of their total transpositions, which is also even. This makes $p_ip_k$ an even permutation. So, 
+    \begin{align*}
+        p_ip_k = p_i(p_j)^{-1} \in A_n. 
+    \end{align*}
+    By the One-Step Subgroup Test, $A_n \leq S_n$.
+\end{proof}
+\quad \text{(b)} Let $\alpha$, $\beta \in S_n$. Show that $\beta\alpha\beta^{-1}$ and $\alpha$ are either both even or both odd.
+\begin{center}
+    * \text{For a permutation to be even/odd, it can be written as an even/odd \# of transpositions.}
+\end{center}
+\quad \underline{\textbf{Case $1$}: $\alpha$ is even} \\ \\
+\indent{}If $\beta$ is even,
+\begin{align*}
+    \beta\alpha\beta^{-1} &= \text{(even \#  of 2-cycles) + (even \#  of 2-cycles) + (even \#  of 2-cycles)}  \\
+    &= \text{even \#  of transpositions}
+\end{align*}
+\indent{} If $\beta$ is odd,
+\begin{align*}
+    \beta\alpha\beta^{-1} &= \text{(odd \# of 2-cycles) + (even \# of 2-cycles) + (odd \# of 2-cycles)} \\
+    &= \text{(odd \# of 2-cycles) + (odd \# of 2-cycles)} \\
+    &= \text{even \# of transpositions} \\ 
+    \Rightarrow \ \beta\alpha\beta^{-1} &\text{is even}.
+\end{align*}
+\quad \underline{\textbf{Case $2$}: $\alpha$ is odd} \\ \\
+\indent{} If $\beta$ is even, 
+\begin{align*}
+    \beta\alpha\beta^{-1} &= \text{(even \# of 2-cycles) + (odd \# of 2-cycles) + (even \# of 2-cycles)} \\
+    &= \text{(odd \# of 2-cycles) + (even \# of 2-cycles)} \\
+    &= \text{odd \# of transpositions}
+\end{align*}
+\indent{} If $\beta$ is odd,
+\begin{align*}
+    \beta\alpha\beta^{-1} &= \text{(odd \# of 2-cycles) + (odd \# of 2-cycles) + (odd \# of 2-cycles)} \\
+    &= \text{odd \# of transpositions} \\
+    \Rightarrow \ \beta\alpha\beta^{-1} &\text{is odd}
+\end{align*} \\
+\textbf{3.} \quad (a) Consider the sets
+\begin{center}
+    $G_1 = \left\{a + b\sqrt{2} \ \middle|\ a,b \in \mathbb{Q}\right\}$ and  $G_2 = \left\{\begin{bmatrix}
+        a & 2b \\
+        b & a
+    \end{bmatrix}}  \ \middle | \ a, b \in \mathbb{Q} \right\}$
+\end{center}
+\qquad Both $G_1$ and $G_2$ are groups under the operation of addition. Prove that $G_1$ and $G_2$ are isomorphic.
+\begin{center}
+    * "isomorphism" \Rightarrow \ \text{bijective and operation-preserving}
+\end{center}
+Since both $G_1$ and $G_2$ make use of $a$ and $b$, define $\varphi : G_1 \xrightarrow[]{} G_2$ to be 
+\begin{align*}
+    \varphi(a + b\sqrt{2}) = \begin{bmatrix}
+        a & 2b \\
+        b & a
+    \end{bmatrix}.
+\end{align*}
+\textbf{One-to-One}: 
+Suppose we have some $a_1,b_1 \in \mathbb{Q}$ and $a_2,b_2 \in \mathbb{Q}$ s.t
+\begin{align*}
+    \varphi(a_1 + b_1 \sqrt{2}) &= \varphi(a_2 + b_2\sqrt{2}) \\ \\
+    \Rightarrow \ \begin{bmatrix}
+        a_1 & 2b_1\\
+        b_1 & a_1
+    \end{bmatrix} &= \begin{bmatrix}
+        a_2 & 2b_2 \\
+        b_2 & a_2
+    \end{bmatrix}.
+\end{align*}
+However, for matrices to be equal, they must have the same dimensions and the same elements for each row and column. So,
+\begin{align*}
+    a_1 &= a_2  \\ \\
+    2b_1 &= 2b_2 \\
+    \Rightarrow \ b_1&= b_2 
+\end{align*}
+So, $a_1 + b_1 \sqrt{2} = a_2 + b_2\sqrt{2}$, making $\varphi$ 1-to-1. \\ \\
+\textbf{Onto}: Let $M = \begin{bmatrix}
+    a_1 & 2b_1 \\
+    b_1 & a_1
+\end{bmatrix} \in G_2$ where $a_1,b_1 \in \mathbb{Q}$. Since $a_1, b_1 \in \mathbb{Q}$, there must be some $g \in G_1$ s.t $g = a_1 + b_1\sqrt{2}$. But, that implies 
+\begin{align*}
+    \varphi(g) &= M.
+\end{align*}
+So, any matrix $M$ in $G_2$ has a corresponding element in $G_1$ that maps to it, making $\varphi$ onto. \\ \\
+\textbf{Operation Preserving}: Let $a_1,a_2, b_1, b_2 \in \mathbb{Q}$. Consider
+\begin{align*}
+     \varphi(a_1 + b_1\sqrt{2}) + \varphi(a_2 + b_2\sqrt{2}) &= \begin{bmatrix}
+         a_1 & 2b_1 \\
+         b_1 & a_1
+     \end{bmatrix} + \begin{bmatrix}
+         a_2 & 2b_2 \\
+         b_2 & a_2
+     \end{bmatrix} \\ \\
+     &= \begin{bmatrix}
+         a_1 + a_2 & 2b_1 + 2b_2 \\
+         b_1 + b_2 & a_1 + a_2
+     \end{bmatrix} \\ \\
+      &= \begin{bmatrix}
+         a_1 + a_2 & 2(b_1 + b_2) \\
+         b_1 + b_2 & a_1 + a_2
+     \end{bmatrix} \\ \\
+     &= \varphi(a_1 + b_1\sqrt{2} + a_2 + b_2\sqrt{2}).
+\end{align*}
+So, $\varphi$ is operation preserving. $\therefore$ $G_1 \cong G_2$. \\ \\
+\qquad \indent{}(b) Prove that the group $G_1 = (\mathbb{Z}, +)$ and $G_2 = (\mathbb{Q}, +)$ are \textbf{not} isomorphic. 
+\begin{proof}
+    By contradiction, suppose $\exists$ an isomorphism $\varphi: G_1 \xrightarrow[]{} G_2$. That implies $G_1$ \underline{and} $G_2$ share the same properties of groups such as being cyclic. We know $G_1 = \langle 1 \rangle$. However, there's no rational number $\frac{a}{b}$ that generates every rational number under addition because $b$ is fixed as the denominator which makes it impossible to reach any other rational number whose denominator isn't $b$. So, $G_1 \ncong G_2$. 
+\end{proof}
+\noindent \textbf{4.} \quad (a) Prove that group isomorphism is an equivalence relation.
+\begin{proof}
+    To show that group isomorphism is an equivalence relation, we must show that it satisfies the properties of one. \\ \\
+    \textbf{Reflexivity}: Let $G$ be a group. We want to show that $\exists$ an isomorphism between any $G$ and itself. We can define
+    \begin{align*}
+        \varphi_a = axa^{-1} \ \text{where $a \in G$}
+    \end{align*}
+    as the inner automorphism of $G$ induced by $a$. This allows us to say that the function
+    \begin{align*}
+        \varphi_{a}: G \xrightarrow[]{} G
+    \end{align*}
+    is an isomorphism between $G$ and itself. \\ \\
+    \textbf{Symmetry}: Let $G_1$ and $G_2$ be groups and $\varphi: G_1 \xrightarrow[]{} G_2$ be an isomorphism. We want to show $\exists$ some isomorphism mapping $G_2$ back to $G_1$. By Theorem $6.3$, the function
+    \begin{align*}
+        \varphi^{-1}: G_2 \xrightarrow[]{} G_1
+    \end{align*} 
+    is also an isomorphism which maps $G_2$ back to $G_1$. \\ \\
+    \textbf{Transitivity}: Let $G_1, G_2$ and $G_3$ be groups and $\varphi: G_1 \xrightarrow[]{} G_2$ and $\pi: G_2 \xrightarrow[]{} G_3$ be isomorphisms. We want to show that $\exists$ an isomorphism between $G_1$ to $G_3$. Consider the function
+    \begin{align*}
+        \pi \circ \varphi : G_1 \xrightarrow[]{} G_3.
+    \end{align*}
+    Let $a,b \in G_1$ s.t $\pi\circ\varphi (a) = \pi \circ \varphi (b)$.  Since $\varphi$ and $\pi$ are isomorphisms, they're 1-to-1. So,
+    \begin{align*}
+        \pi(\varphi(a)) &= \pi(\varphi(b)) \\
+        \Rightarrow \pi(a) &= \pi(b) \\
+        \Rightarrow a &= b.
+    \end{align*}
+    So, $\pi \circ \varphi$ is 1-to-1. Let $d \in G_2$. Since $\varphi$ is an isomorphism, we know there exists some $c \in G_1$ s.t 
+    \begin{align*}
+        \varphi(c) = d. 
+        \end{align*}
+    Since $\pi$ is an isomorphism, there's some $e \in G_3$ s.t
+    \begin{align*}
+         \pi(\varphi(c)) &= \pi(d) \\
+          &= e.
+    \end{align*}
+    So, $\pi \circ \varphi$ is onto. To show this composition is operation preserving, we need to show that $\pi \circ \varphi(ab) = [\pi \circ \varphi(a)][\pi \circ \varphi(b)]$. Since $\varphi$ and $\pi$ are isomorphisms,
+    \begin{align*}
+        \pi \circ \varphi(ab) &=\pi(\varphi(ab)) \\
+        &=  \pi(\varphi(a)\varphi(b)) \\
+        &= [\pi(\varphi(a)][\pi(\varphi(b)] \\
+        &= [\pi \circ \varphi (a)][\pi \circ \varphi (b)].
+    \end{align*}
+    Hence, $\pi \circ \varphi$ is an isomorphism and $G_1 \cong G_3$.
+    So, group isomorphism is an equivalence relation. 
+\end{proof} 
+\quad (b) If a group $G$ is isomorphic to a group $H$, prove that Aut($G$) is isomorphic to Aut($H$).
+\begin{proof}
+    Suppose $\exists$ an isomorphism $\varphi: G \xrightarrow{} H$. Consider the mapping \begin{align*}
+        \Phi: \text{Aut}(G) \xrightarrow{} \text{Aut}(H)
+    \end{align*}
+    given by $\Phi (x) = \varphi\alpha\varphi^{-1}$. To show this mapping is an isomorphism, we must show that it is bijective and operation preserving. \\ \\
+    \underline{\textbf{One-to-One}}: Suppose $\alpha_{1}, \alpha_{2} \in$ Aut($G$) such that
+    \begin{align*}
+        \Phi(\alpha_1) &= \Phi(\alpha_2) \\
+        \Rightarrow \varphi\alpha_1\varphi^{-1} &= \varphi\alpha_2\varphi^{-1}.
+    \end{align*}
+    We want to show that $\alpha_1 = \alpha_2$. Since $\varphi$ is an isomorphism, $\varphi^{-1}: H \xrightarrow[]{} G$ is also an isomorphism. So,
+    \begin{align*}
+        \varphi^{-1}(\varphi\alpha_1\varphi^{-1})\varphi &= \varphi^{-1}(\varphi\alpha_2\varphi^{-1})\varphi \\
+        \Rightarrow \ \varphi^{-1}\varphi(\alpha_1)\varphi^{-1}\varphi &= \varphi^{-1}\varphi(\alpha_2)\varphi^{-1}\varphi \\
+        \Rightarrow \alpha_1 &= \alpha_2. 
+    \end{align*}
+    So, $\Phi$ is 1-to-1. \\ \\
+    \underline{\textbf{Onto}}: We want to show that for some $a \in$ Aut($H$) that 
+    \begin{align*}
+        \Phi(\alpha) &= a  \\
+        \Rightarrow \varphi\alpha\varphi^{-1} &= a  \\
+        \Rightarrow \varphi^{-1}a \ \varphi &= \alpha \ \text{where $\varphi^{-1}a \ \varphi \in$ Aut($G$)}.
+    \end{align*}
+    So,
+    \begin{align*}
+        \Phi(\alpha) &= \varphi(\varphi^{-1}a \ \varphi)\varphi^{-1} \\
+        &= \varphi \varphi^{-1}(a)\varphi\varphi^{-1} \\
+        &= a.
+    \end{align*}
+    Hence, $\Phi$ is onto. \\ \\
+    \underline{\textbf{Operation Preserving}}: To show that $\varphi(\alpha_{1}\alpha_{2}) = \varphi(\alpha_{1})\varphi(\alpha_2)$, consider
+    \begin{align*}
+        \Phi(\alpha_{1})\Phi(\alpha_{2}) &= (\varphi\alpha_{1}\varphi^{-1})(\varphi\alpha_{2}\varphi^{-1}) \\  
+        &= \varphi\alpha_{1}(\varphi^{-1}\varphi)\alpha_{2} \varphi^{-1} \\
+        &= \varphi \alpha_{1}\alpha_{2}\varphi^{-1} \\
+        &= \Phi(\alpha_{1}\alpha_{2}).
+    \end{align*}
+    So, $\Phi$ is operation preserving. $\therefore$ $\Phi$ is an isomorphism and Aut($G$) $\cong$ Aut($H$).
+\end{proof}
+\quad (c) Give an example of two groups $G$ and $H$ such that Aut($G$) is isomorphic to Aut($H$), but G is \textbf{not} isomorphic with $H$. \\ \\
+Consider $\mathbb{Z}_{4}$ and $\mathbb{Z}_{6}$. By Theorem $6.5$, we know that 
+\begin{align*}
+   \text{Aut}(\mathbb{Z}_{4}) &\cong U(4) = \left\{1, 3\right\} \\
+    \text{Aut}(\mathbb{Z}_{6}) &\cong U(6) = \left\{1, 5\right\}.
+\end{align*}
+Since both sets of automorphisms are isomorphic to cyclic groups of order $2$,
+\begin{align*}
+    \text{Aut}(\mathbb{Z}_{4}) \cong \text{Aut}(\mathbb{Z}_6). 
+\end{align*}
+But, $|\mathbb{Z}_{4}| =4 \neq |\mathbb{Z}_{6}| = 6$, making a 1-to-1 mapping between these groups impossible. Hence, 
+$\mathbb{Z}_4 \ncong \mathbb{Z}_{6}$. 
+\end{document}

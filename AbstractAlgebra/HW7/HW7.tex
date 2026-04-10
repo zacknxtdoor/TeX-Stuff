@@ -1,0 +1,244 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    3/18/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document} 
+\paragraph{\underline{7} \\ \\}
+\textbf{1.} \ \text{(a)} Let $G = \{e, (12)(34), (1234)(56), (13)(24), (1432)(56), (56)(13), (14)(23),(24)(56) \}$ \\ \\
+\vspace{0.2em}
+\qquad \qquad \text{i.} Find the stabilizer and the orbit of $3$.
+\[
+\boxed{
+\begin{aligned}
+    \text{stab}_{G}(3) &= \{e, (24)(56) \} \\
+    \text{orb}_{G}(3) &= \{3, 4, 1, 2\}
+\end{aligned}
+}
+\] \\
+\vspace{0.2em}
+\qquad \qquad \text{ii.} Find the stabilizer and the orbit of 5.
+\[
+\boxed{
+\begin{aligned}
+    \text{stab}_{G}(5) &= \{e, (12)(34), (13)(24), (14)(23)\} \\
+    \text{orb}_{G}(5) &= \{5, 6\}
+\end{aligned}
+}
+\] \\
+\vspace{0.2em}
+\qquad \ \text{(b)} Calculate the orders of the following groups. \\  \vspace{0.2em}
+\qquad \qquad \text{i.} \begin{tabular}[t]{l} 
+    The group of rotations of a regular octahedron 
+    (a solid with eight congruent \\ 
+    equilateral triangles as faces). \end{tabular}
+    \begin{align*}
+        * \ |S| = 8 
+    \end{align*} 
+    \begin{center}
+    \text{For some face $f$, it can be mapped to every side of the octahedron. So,} \\
+    \begin{center}
+        $|\text{orb}_G(i)| = 8$.
+    \end{center}  
+    \text{Also, since each face is a triangle, 3 rotations will leave $f$ in the same place. That is,} \\
+    \begin{center}
+        $|\text{stab}_{G}(i)| = 3$.
+    \end{center}
+    \text{By the Orbit Stabilizer Theorem,}
+    \text{$|G| = |\text{stab}_{G}(i)| \cdot |\text{orb}_{G}(i)|$} = 8 $\cdot$ 3  = \boxed{24} 
+    \end{center} \\ \vspace{0.2em}
+
+\qquad \quad \text{ii.} \begin{tabular}[t]{l}
+         The group of rotations of a regular dodecahedron (a solid with 12 congruent \\
+         regular pentagons as faces).
+    \end{tabular}
+    \begin{align*}
+        * \ |S| = 12
+    \end{align*}
+    \begin{center}
+        \text{Recall from class that a group of rotations on a soccer ball, when looking at the black spots}
+        \text{(pentagons), also has a set $S$ of order 12. Since the same is true here, $|G|$}
+       \text{must be the same}
+       \text{as the group of rotations on a soccer ball. That is,}
+       \begin{align*}
+        |\text{orb}_{G}(i)| &= 12 \\
+        |\text{stab}_{G}(i)| &= 5. \\  \\
+    \text{By the Orbit Stabilizer Theorem, } \\
+    |G| = |\text{orb}_{G}(i)| \cdot |\text{stab}_{G}(i)| &= 12 \cdot 5 = \boxed{60}
+\end{align*}
+    \end{center}  \vspace{0.2em}
+\textbf{2.} \ \text{(a)} Let $G$ be a group of permutations of a finite set $S$. Show that, for any $i \in S$, $\text{stab}_{G}(i)$ is a subgroup of $G$.
+\begin{proof}
+    Let $G$ be a group of permutations of a finite set $S$. It must be nonempty since the identity permutation fixes any element $i$ to itself. So, $e \in \text{stab}_{G}(i)$. Now, let $\alpha, \beta \in \text{stab}_{G}(i)$. This means $\alpha$ and $\beta$ keep $i$ fixed. By the Finite Subgroup Test, we need to show that $\alpha\beta \in \text{stab}_{G}(i)$ $\forall \ \alpha,\beta\in \text{stab}_{G}(i)$. Using the definition of composition,
+    \begin{align*}
+        \alpha\beta(i) &= \alpha(\beta(i)) \\
+        &= \alpha(i) \\
+        &= i.
+    \end{align*}
+    $i$ also stays fixed in $\alpha\beta$, making $\alpha\beta \in \text{stab}_{G}(i)$. Since the elements of $G$ permute a finite number of elements, $G$ itself must be finite. Thus, this is enough to show that $\text{stab}_{G}(i) \leq G$ by the Finite Subgroup Test.
+\end{proof}  \vspace{0.2em}
+\text{(b)} Prove that the external direct product of any finite number of groups is a group.
+\begin{proof}
+    To show that $G_1 \oplus G_2 \oplus \ldots \oplus G_n$ is a group, it must satisfy the defining properties of groups. \\ \\
+    \underline{\textbf{Closure}}: Let $t_{1} = (g_{1}, g_{2}, \ldots, g_n)$ and $t_{2} = (h_{1}, h_{2}, \ldots, h_{n})$ where $g_{i}, h_{i} \in G_{i}$ and $t_{1}, t_{2} \in G_1 \oplus G_2 \oplus \ldots \oplus G_n$. We want to show that $t_{1}t_{2} \in G_1 \oplus G_2 \oplus \ldots \oplus G_n$.
+    \begin{align*}
+        t_{1}t_{2} &=  (g_{1}, g_{2}, \ldots, g_n)(h_{1}, h_{2}, \ldots, h_{n}) \\
+        &= (g_{1}h_{1}, g_{2}h_{2}, \ldots, g_{n}h_{n}) \ \text{where $g_ih_i \in G_i$ (by closure)} \\
+        &\in (G_{1} \oplus G_{2}, \oplus \ldots \oplus G_{n}).
+    \end{align*}
+    This shows that componentwise operations are indeed a binary operation on E.D.Ps. \\ \\
+    \underline{\textbf{Associative}}: This is inherent since componentwise operations are associative.  \\ \\
+    \underline{\textbf{Identity}}: Let $e$ be the n-tuple of identity elements and $t = (g_{1}, g_{2}, \ldots, g_n) \in G_{1} \oplus G_{2} \oplus \ldots \oplus G_{n}$. Then,
+    \begin{align*}
+        &t_1e=(g_{1}, g_{2}, \ldots, g_n)(e_1, e_2, \ldots, e_n) \ \text{where $e_{i} \in G_{i}$}\\
+        &= (g_1e_1,g_2e_2, \ldots, g_ne_n) \\
+        &=(g_{1}, g_{2}, \ldots, g_n). 
+    \end{align*}
+    So, $e \in G_{1} \oplus G_{2} \oplus \ldots \oplus G_n$. \\ 
+    \underline{\textbf{Inverse}}: Let $t_{1} = (g_{1}, g_{2}, \ldots, g_n)$ and $t^{-1}_1 = (g_{1}^{-1}, g_{2}^{-1}, \ldots, g_n^{-1})$ Thus, 
+    \begin{align*}
+        t_{1}t_{1}^{-1}&=(g_{1}, g_{2}, \ldots, g_n)(g_{1}^{-1}, g_{2}^{-1}, \ldots, g_{n}^{-1}) \\
+        &= (g_{1}g_{1}^{-1}, g_{2}g_{2}^{-1}, \ldots, g_{n}g_{n}^{-1}) \\
+        &= (e, e, \ldots, e) \\
+        &= e.
+    \end{align*}
+ So, the external direct product of any finite number of groups is a group.
+\end{proof} 
+\vspace{0.2em} 
+\noindent \textbf{3.} \ \text{(a)} Show that $G \oplus H$ is Abelian if and only if $G$ and $H$ are Abelian.
+\begin{proof}
+    $(\Rightarrow)$ Suppose $G \oplus H$ is Abelian. That means
+    \begin{align*}
+        \Rightarrow \ (g_1g_2, h_1h_2) &= (g_2g_1, h_2h_1) \ \text{where $g_1,g_2 \in G$, $h_1,h_2 \in H$}. 
+    \end{align*}
+    Since the operation of E.D.Ps are componentwise, this equality implies
+    \begin{align*}
+        g_1g_2 = g_2g_1 \ \text{and} \ h_1h_2 = h_2h_1.
+    \end{align*}
+    This is precisely the definition of commutativity between elements of $G$ and $H$, making the groups Abelian. \\
+    $(\Leftarrow)$ Suppose $G$ and $H$ are Abelian groups. This means
+    \begin{align*}
+        g_1g_2 &= g_2g_1 \ \forall \ g_i, g_j \in G \\
+        h_1h_2 &= h_2h_1 \ \forall \ h_i, h_j \in H \\ 
+        \Rightarrow (g_1g_2, h_1h_2) &= (g_2g_1, h_2, h_1).
+    \end{align*}
+    Since both tuples contain elements from $G$ and $H$, both tuples are elements of $G \oplus H$. So, $G \oplus H$ is Abelian.
+\end{proof} \vspace{0.2em}
+\text{(b)} \begin{tabular} [t] {l}
+     The dihedral group of $D_n$ of order $2n \ (n \geq 3)$ has a subgroup of order $n$ (of all the \\
+      rotations) and many subgroups of order $2$ (e.g $\langle F_1 \rangle$). Explain why $D_n$ cannot be \\
+      isomorphic to the external direct product of two such groups.
+\end{tabular} 
+\begin{center}
+\[
+{\setlength{\fboxsep}{10pt}
+\boxed{
+    \parbox{0.85\linewidth}{
+        Consider $R$ to be any subgroup of rotations of order $n$ and $F$ to be any subgroup of order 2. By the Cayley Table from HW $3$, both of these groups are cyclic, and thus Abelian.
+         By 3(a), that makes $R \oplus F$ Abelian. However, $D_n$ for $n \geq 3$ is not Abelian. So, in general, $D_n$ can \textbf{not} be isomorphic to the
+        external direct product of such groups.
+    }
+}}
+\]
+\end{center} \vspace{0.2em} 
+\textbf{4.} \ \text{(a)} Prove, by comparing orders of elements, that $\mathbb{Z}_{8} \oplus \mathbb{Z}_{2}$ is not isomorphic to $\mathbb{Z}_{4} \oplus \mathbb{Z}_{4}$.
+\begin{align*}
+    * \ \mathbb{Z}_{8} &= \{0, 1, 2, 3, 4, 5, 6, 7\}, \ \mathbb{Z}_{2} = \{0, 1\}, \  \mathbb{Z}_{4} = \{0, 1, 2, 3\}
+\end{align*}
+\begin{align*}
+    \mathbb{Z}_{8} \oplus \mathbb{Z}_{2} &= \begin{tabular}[t]{l} 
+    \{(0,0), (0,1), \\
+    (1,0), (1,1), \\
+    (2,0), (2,1), \\
+    (3,0), (3,1), \\
+    (4,0), (4,1), \\
+    (5,0), (5,1), \\
+    (6,0), (6,1), \\
+    (7,0), (7,1)\}
+    \end{tabular} \\
+    \mathbb{Z}_{4} \oplus \mathbb{Z}_4 &= \begin{tabular}[t]{l}
+        \{(0,0), (0,1), (0,2), (0,3), \\
+        (1,0), (1,1), (1,2), (1,3), \\
+        (2,0), (2,1), (2,2), (2,3), \\
+        (3,0), (3,1), (3,2), (3,3)\} 
+    \end{tabular}
+\end{align*}
+\quad \ By Theorem 8.1, consider the order of (1,1) in $\mathbb{Z}_{8} \oplus \mathbb{Z}_{2},$
+\begin{align*}
+    |(1_{\mathbb{Z}_{8}},1_{\mathbb{Z}_{2}})| &= \text{lcm}(|(1_{\mathbb{Z}_{8}}|, |1_{\mathbb{Z}_{2}}|) \\
+    &= \text{lcm}(8, 2)\\
+    &= 8.
+\end{align*}
+If $\mathbb{Z}_{8} \oplus \mathbb{Z}_{2} \cong \mathbb{Z}_{4} \oplus \mathbb{Z}_{4}$, there must exist some element in $\mathbb{Z}_{4} \oplus \mathbb{Z}_{4}$ of order 8. However,
+\[
+\left.
+\begin{aligned}
+    |0| &= 1 \\
+    |1| &= 4 \\
+    |2| &= 2 \\
+    |3| &= 4
+\end{aligned}
+\right\} \text{ orders in } \mathbb{Z}_4
+\]
+it is impossible to get the form lcm($|a|, |b|$) = 8 where $a,b\in \mathbb{Z}_{4}$ from these orders. So, $\mathbb{Z}_{4} \oplus \mathbb{Z}_{4}$ does \textbf{not} have an element of order 8 and hence $\mathbb{Z}_{8} \oplus \mathbb{Z}_{2} \ncong \mathbb{Z}_{4} \oplus \mathbb{Z}_{4}$. \\ \vspace{0.2em}
+\quad \text{(b)} Prove that $\mathbb{Z} \oplus \mathbb{Z}$ is not cyclic. 
+\begin{proof}
+    By contradiction, suppose $\mathbb{Z}\oplus\mathbb{Z}$ is cyclic. That means $\exists \ \text{some tuple}\ (a,b) \in \mathbb{Z}\oplus\mathbb{Z}$ s.t $\langle(a,b)\rangle = \mathbb{Z}\oplus\mathbb{Z}$. Thus, $\forall$ $(c,d) \in \mathbb{Z}\oplus\mathbb{Z}$, there's some $n\in \mathbb{Z}$ s.t
+    \begin{align*}
+        (c,d)= \underbrace{(a,b)+(a,b) + \ldots + (a,b)}_{\text{$n$ times}}  = (na,nb).
+    \end{align*}
+    However, consider the elements $(1,0), (0,1) \in \mathbb{Z}\oplus\mathbb{Z}$. If $\mathbb{Z}\oplus\mathbb{Z}$ is cyclic, $(1,0), (0,1) \in \langle(a,b)\rangle$. Let $x,y \in \mathbb{Z}$ s.t
+    \begin{align*}
+        (xa,xb) &= (1,0) \ \ \text{and} \ \ (ya,yb) = (0,1).
+    \end{align*}
+    Since the operation of E.D.Ps are componentwise,
+    \begin{align*}
+        \Rightarrow \ xa = 1 \ &\text{and} \ xb = 0 \ \  \ \ yb  = 1 \ \text{and} \ ya = 0 \\ \\
+        \Rightarrow \ x = a = \pm \ 1 \ &\text{and} \ \underline{b =0} \ \ \ \ y = b = \pm \ 1 \ \text{and} \ \underline{a = 0}. 
+    \end{align*}
+    So, the only way to generate both $(1,0)$ and $(0,1)$ is if $(a,b) = (0,0)$. But, $\langle(0,0)\rangle = \{(0,0)\}$. Thus, $\mathbb{Z}\oplus\mathbb{Z}$ is not cyclic. 
+\end{proof}
+ \text{(c)} Adapt your proof from part (b) to prove that, for any nontrivial group $G$, $\mathbb{Z}\oplus G$ is not cyclic.
+ \begin{proof}
+     By contradiction, suppose $\mathbb{Z} \oplus G$ is cyclic. That means $\exists$ some $a \in \mathbb{Z} \ \text{and} \ g \in G$ s.t $\langle (a,g)\rangle = \mathbb{Z}\oplus G$. $\forall$ $(c, d) \in \mathbb{Z}\oplus G$ where $c \in \mathbb{Z}$ and $h \in G$, there's some $n \in \mathbb{Z}$ such that 
+     \begin{align*}
+         (c, d) = (a,g)^n = (na, g^{n}).
+     \end{align*} 
+     Similar to (a), consider the elements $(1,e), (0, g') \in \mathbb{Z}\oplus G$ where $g' \neq e$. Let $x,y \in \mathbb{Z}$ s.t
+     \begin{align*}
+         (xa, g^{x}) &= (1, e) \ \ \text{and} \ \ (ya, g^{y}) = (0, g').
+     \end{align*}
+     Since the operation of E.D.Ps are componentwise,
+     \begin{align*}
+     \Rightarrow xa = 1 \ &\text{and} \ g^{x} = e \ \  \ \ ya  = 0 \ \text{and} \ g^{y} = g' \\ \\ 
+     \Rightarrow x = a = \pm \ 1 \ &\text{and} \ \underline{g^1 = g^{-1} = e} \ \ \ \ \underline{y =  0} \ \text{and} \ \underline{g^0 =g' = e}. 
+     \end{align*}
+     So, the only way to generate both $(1,e)$ and $(0, g')$ is if $(a,g) = (0,e)$. But, if $e$ is a generator of $G$, that contradicts $G$ being nontrivial. Thus, $\mathbb{Z}\oplus G$ is not cyclic.
+ \end{proof}
+\end{document}

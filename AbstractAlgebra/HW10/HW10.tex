@@ -1,0 +1,315 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\setlength{\headheight}{42pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    4/17/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\begin{document}
+\paragraph{\underline{10} \\ \\}
+
+\textbf{1.} \begin{tabular}[t]{@{}p{0.93\textwidth}@{}}
+    (a) What is the smallest positive integer $n$ such that there are exactly four non-isomorphic Abelian groups of order $n$? Name the four groups. \\[6pt] \\
+    \begin{tabular}[t]{l}
+        By the Fundamental Theorem of Finite Abelian Groups, we want to find a prime $p$ such \\
+        that the number of partitions of $p$ is 4. Consider the product $p^{2}_{1}p^{2}_{2}$ where $p_{1}$ and $p_{2}$ are di-\\
+        stinct primes. Since both amount to 2 partitions respectively, their product amounts to 4 \\
+        partitions. To get the smallest integer $n$, we want to use the smallest primes that create \\
+        4 partitions. So,
+    \end{tabular} 
+    \begin{align*}
+        n = 2^{2} \cdot 3^{2} = \boxed{36}
+    \end{align*}
+    \begin{tabular}[t]{l}
+        The groups should be of the forms $\mathbb{Z}_{p_1^{2}} \oplus \mathbb{Z}_{p_2^{2}}, \mathbb{Z}_{p_1^{2}} \oplus (\mathbb{Z}_{p_2} \oplus \mathbb{Z}_{p_2}), (\mathbb{Z}_{p_1} \oplus \mathbb{Z}_{p_{1}}) \oplus \mathbb{Z}_{p_2^{2}}, $ \\
+        and $(\mathbb{Z}_{p_1} \oplus \mathbb{Z}_{p_1}) \oplus (\mathbb{Z}_{p_2} \oplus \mathbb{Z}_{p_2})$. Thus, the groups are
+        \end{tabular} 
+        \begin{center}
+        \fbox{\begin{tabular}{r@{\quad}l}
+            1. & $\mathbb{Z}_{4} \oplus \mathbb{Z}_{9}$ \\
+            2. & $\mathbb{Z}_{4} \oplus (\mathbb{Z}_{3} \oplus \mathbb{Z}_{3})$ \\
+            3. & $(\mathbb{Z}_{2} \oplus \mathbb{Z}_{2}) \oplus \mathbb{Z}_{9}$ \\
+            4. & $(\mathbb{Z}_{2} \oplus \mathbb{Z}_{2}) \oplus (\mathbb{Z}_{3} \oplus \mathbb{Z}_{3})$
+        \end{tabular}}
+        \end{center}
+    (b) Up to isomorphism, how many additive Abelian groups of order 16 have the property that $x + x + x + x = 0$ for all $x$ in the group? \\[6pt]
+    \begin{tabular}[t]{l}
+        Since 2 is prime and $2^{4} = 16$, we want to find the groups corresponding to the partitions of $p^{4}$. \\
+        Since partitions of $p^{4}$ are $p^{4}, p^{3}p, p^{2}p^{2}, p^{2}pp$, and $pppp$, our choices of groups are \\
+        \end{tabular}
+        \begin{center}
+        {\begin{tabular}{r@{\quad}l}
+            &1. $\mathbb{Z}_{16}$ \ \text{(max order of 16)} \\
+           &2. $\mathbb{Z}_{8} \oplus \mathbb{Z}_{2}$ \ \text{(max order of 8)} \\
+            &3. $\mathbb{Z}_{4} \oplus \mathbb{Z}_{4}$ \ \text{(max order of 4)} \\
+            &4. $\mathbb{Z}_{4} \oplus (\mathbb{Z}_{2} \oplus \mathbb{Z}_{2})$ \ \text{(max order of 4)} \\
+            &5. $\mathbb{Z}_{2} \oplus \mathbb{Z}_{2} \oplus \mathbb{Z}_{2} \oplus \mathbb{Z}_{2}$ \ \text{(max order of 2)}
+            \end{tabular}}
+        \end{center}
+        \begin{tabular}[t]{l}
+            Groups whose elements have a max order of 4 satisfy the property. Also, groups with max order\\
+            of 2 also satisfy it since $(x + x) + (x + x) = 0 + 0 = 0$. So, \boxed{\text{3 groups satisfy the property.}}
+            \end{tabular} \\ \\
+    (c) Let $p_1, p_2, \dots, p_n$ be distinct primes. Up to isomorphism, how many Abelian groups are there of order $p_1^4 p_2^4 \cdots p_n^4$? \\[6pt]
+    \begin{tabular}[t]{l}
+        For each $p_{i}^4$, it has 5 partitions. So, the total number of groups of this order is \boxed{5^{n}}
+        \end{tabular}
+\end{tabular}
+
+\bigskip
+
+\textbf{2.} \begin{tabular}[t]{@{}p{0.93\textwidth}@{}}
+    Let $G = \{1, 7, 43, 49, 51, 57, 93, 99, 101, 107, 143, 149, 151, 157, 193, 199\}$ under multiplication modulo 200. Determine the isomorphism class of $G$. \textit{Justify your answer.}
+\end{tabular}
+\indent \begin{tabular}[t]{l}
+    Since $|G| = 16$, we want to find E.D.Ps of order 16. Since $2^4 = 16$, the only options are 
+    \end{tabular}
+    \begin{alignat*}{2}
+        & \mathbb{Z}_{16} &\qquad& \text{possible orders: } 1, 2, 4, 8, 16 \\
+        & \mathbb{Z}_{8} \oplus \mathbb{Z}_{2} && \text{possible orders: } 1, 2, 4, 8 \\
+        & \mathbb{Z}_4 \oplus \mathbb{Z}_4 && \text{possible orders: } 1, 2, 4 \\
+        & \mathbb{Z}_4 \oplus (\mathbb{Z}_2 \oplus \mathbb{Z}_2) && \text{possible orders: } 1, 2, 4 \\
+        & \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2 && \text{possible orders: } 1, 2
+    \end{alignat*}
+    \indent \begin{tabular}[t]{l}
+    The orders of the elements in $G$ under multiplication modulo 200 are:
+    \end{tabular}
+    \begin{gather*}
+        |1| = 1, \quad |7| = 4, \quad |43| = 4, \quad |49| = 2, \\
+        |51| = 2, \quad |57| = 4, \quad |93| = 4, \quad |99| = 2, \\
+        |101| = 2, \quad |107| = 4, \quad |143| = 4, \quad |149| = 2, \\
+        |151| = 2, \quad |157| = 4, \quad |193| = 4, \quad |199| = 2
+    \end{gather*}
+    \indent \begin{tabular}[t]{l}
+        Since no elements have order 8 or 16, we can eliminate $\mathbb{Z}_{16}$ and $\mathbb{Z}_{8} \oplus \mathbb{Z}_{2}$. Also, since there's at \\
+        least one element of order 3, we can eliminate $\mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2 \oplus \mathbb{Z}_2$. So, the only options left \\
+        are \boxed{\text{$\mathbb{Z}_4 \oplus \mathbb{Z}_4$ and $\mathbb{Z}_4 \oplus (\mathbb{Z}_2 \oplus \mathbb{Z}_2)$}}\\
+    \end{tabular}
+
+\bigskip
+
+\textbf{3.} \begin{tabular}[t]{l}
+    Prove Theorem 12.1, which says the following:
+\end{tabular}
+
+\begin{quote}
+    Let $a$, $b$, and $c$ belong to a ring $R$. Then
+    \begin{enumerate}
+        \item $a0 = 0a = 0$
+        \begin{proof}
+            $a0 = a(0 + 0) = a0 + a0$. Adding $(-a0)$ to both sides,
+            \begin{align*}
+                a0 + (-a0) &= (a0 + a0) + (-a0) \\
+                \Rightarrow 0 &= a0 
+                \end{align*}
+            Similarly, 
+            \begin{align*}
+                0a &= (0 + 0)a = 0a + 0a \\
+                \Rightarrow 0a + (-0a) &= (0a + 0a) + (-0a) \\
+                \Rightarrow 0 &= 0a 
+                \end{align*}
+        \end{proof}
+        \item $a(-b) = (-a)b = -(ab)$
+        \begin{proof}
+            If a(-b) = -(ab), then that implies a(-b) is the additive inverse of ab. So,
+            \begin{align*}
+                a(-b) + ab &= a(-b + b) = a0 = 0.   
+                \end{align*}
+                So,
+                \begin{align*}
+                    a0 + (-(ab)) &= 0 + (-(ab)) \\
+                    \Rightarrow a(0 + (-b)) &= -(ab) \\
+                    \Rightarrow a(-b) &= -(ab)
+                    \end{align*}
+            Similarly,
+            \begin{align*}
+                (-a)b + ab &= (-a + a)b = 0b = 0.  \\
+                \Rightarrow 0b + (-(ab)) &= 0 + (-(ab)) \\
+                \Rightarrow (0 + (-a))b &= -(ab) \\
+                \Rightarrow (-a)b &= -(ab)
+                \end{align*}
+        \end{proof}
+        \item $(-a)(-b) = ab$
+        \begin{proof}
+            By Property 2 of Theorem 12.1,
+            \begin{align*}
+                (-a)(-b) &= -((-a)b) \\
+                &= -(-(ab)) \\
+                &= ab
+                \end{align*}
+        \end{proof}
+        \item $a(b - c) = ab - ac$ and $(b - c)a = ba - ca$
+        \begin{proof}
+            By the definition of rings and Property 2 of Theorem 12.1,
+            \begin{align*}
+                a(b - c) &= a(b + (-c)) \\
+                &= ab + a(-c) \\
+                &= ab + (-(ac)) \\
+                &= ab - ac
+            \end{align*}
+            Similarly,
+            \begin{align*}
+                (b - c)a &= (b + (-c))a \\
+                &= ba + (-ca) \\
+                &= ba - ca
+                \end{align*}
+        \end{proof}
+    \end{enumerate}
+    Furthermore, if $R$ has a unity element 1, then
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item $(-1)a = -a$
+        \begin{proof}
+            By Property 2 of Theorem 12.1,
+            \begin{align*}
+                (-1)a &= -(1a) \\
+                &= -(a) \\
+                &= -a
+                \end{align*}
+        \end{proof}
+        \item $(-1)(-1) = 1$
+        \begin{proof}
+            By Property 3 of Theorem 12.1,
+            \begin{align*}
+                (-1)(-1) &= (1)(1) \\
+                &= 1
+                \end{align*}
+        \end{proof}
+    \end{enumerate}
+\end{quote}
+
+\bigskip
+
+\textbf{4.} \begin{tabular}[t]{@{}p{0.93\textwidth}@{}}
+    (a) Find an integer $n$ so that the ring $\mathbb{Z}_n$ does \textbf{not} satisfy any of the following properties for all $a, b, c \in \mathbb{Z}_n$:
+\end{tabular}
+
+\begin{quote}
+    \begin{enumerate}[i.]
+        \item If $a^2 = a$, then $a = 0$ or $a = 1$ 
+        \item If $ab = 0$, then $a = 0$ or $b = 0$
+        \item If $ab = ac$ and $a \neq 0$, then $b = c$.
+    \end{enumerate}
+\end{quote} 
+
+\indent \indent \begin{tabular}[t]{l} 
+    Let $n = 6$ and consider the ring $\mathbb{Z}_6$:  \\
+    \indent i. $3^{2} = 9 \ \text{mod} \ 6 = 3$, but $3 \neq 0$ and $3 \neq 1$. \\
+    \indent ii. $(3)(2) = 6 \ \text{mod} \ 6 = 0$, but $3 \neq 0$ and $2 \neq 0$. \\
+    \indent iii. $(3)(4) = 12 \ \text{mod} \ 6 = 0$ and $(3)(2) = 6 \ \text{mod} \ 6 = 0$, but $4 \neq 2$. \\
+    \end{tabular} \\
+\begin{tabular}[t]{@{}p{0.93\textwidth}@{}}
+    \phantom{\textbf{4.} }(b) Show that the three properties in part (a) are satisfied in $\mathbb{Z}_p$, where $p$ is prime.
+\end{tabular} \\
+
+\begin{tabular}[t]{l}
+    Since $\mathbb{Z}_p$ has a unity of 1, it has multiplicative inverses. So, \\
+    \indent i.
+    \end{tabular}
+    \begin{align*}
+        a^{2}(a^{-1}) &= a(a^{-1}) \\
+        \Rightarrow a &= 0.
+        \end{align*}
+        \indent \indent \begin{tabular}[t]{l}
+            If $a \neq 0$, then
+            \end{tabular}
+            \begin{align*}
+                a^{2} &= a \\
+                \Rightarrow a^2 - a &= 0 \\
+                \Rightarrow a(a - 1) &= 0 \\
+               \Rightarrow a^{-1}(a(a - 1)) &= a^{-1}0 \\
+               \Rightarrow a - 1 & = 0 \\
+               \Rightarrow a &= 1
+                \end{align*}
+    \indent \indent \begin{tabular}[t]{l}
+        ii.
+        \end{tabular}
+        \begin{align*}
+            ab(b^{-1}) &= 0(b^{-1}) \\
+            \Rightarrow a &= 0 \ \\
+            &\text{or}  \\ 
+            a^{-1}(ab) &= a^{-1}0 \\
+            \Rightarrow b &= 0
+            \end{align*}
+   \indent \indent \begin{tabular}[t]{l}
+    iii.
+        \end{tabular}
+        \begin{align*}
+            (a^{-1})(ab) &= (a^{-1})(ac) \\
+            \Rightarrow b &= c
+            \end{align*}
+
+\bigskip
+
+\textbf{5.} \begin{tabular}[t]{@{}p{0.93\textwidth}@{}}
+    (a) Give an example of ring elements $a$ and $b$ with the property that $ab = 0$, but $ba \neq 0$. \\[6pt]
+    (b) Let $n$ be an integer greater than 1. In a ring in which $x^n = x$ for all $x$, show that $ab = 0$ implies that $ba = 0$.
+\end{tabular} \\
+
+\indent \indent \begin{tabular}[t]{l}
+    (a) If $ab = ba = 0$, that means $a$ and $b$ commute. So, we want to find ring elements that \\
+    don't commute. Consider the ring $M_2(\mathbb{Z})$ and let $A = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}$ and $B = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$ be elements \\
+    of the ring. Then,
+    \end{tabular}
+    \begin{align*}
+        AB &= \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} \\
+        BA &= \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}
+    \end{align*}
+    \indent \indent \indent So, $AB \neq BA$. \\\\
+\indent \indent \begin{tabular}[t]{l}
+    (b) Let $n = 2$. Then, 
+    \end{tabular}
+    \begin{align*}
+        (ba)^{2} &= ba(ba) \\
+        &= b(ab)a \\
+        &= b(0)a \\
+        &= 0
+        \end{align*}
+    \indent \indent \indent By the definition of the ring, $(ba)^{2} = ba$. So, $ba = 0$.
+\bigskip
+
+\textbf{6.} \begin{tabular}[t]{@{}p{0.93\textwidth}@{}}
+    Let $a$ be a fixed element of a ring $R$, and let $S = \{x \in R \mid ax = 0\}$. Show that $S$ is a subring of $R$.
+\end{tabular}
+\begin{proof}
+    Let $R$ be a ring, $a$ be a fixed element of $R$, and $S = \{x \in R \mid ax = 0\}$. By the Subring Test, we need to show that $S$ is closed under subtraction and multiplication. Take $x, y \in S$ and consider the product $a(xy)$. By Theorem 12.1,
+    \begin{align*}
+        a(xy) &= (ax)y \\
+        &= 0y \\
+        &= 0
+        \end{align*}
+    So, $xy \in S$. Similarly,
+    \begin{align*}
+        a(x-y) &= ax - ay \\
+        &= 0 - 0 \\
+        &= 0.
+    \end{align*}
+    So, $x-y \in S$. By the Subring Test, $S$ is a subring of $R$.
+    \end{proof}
+
+\end{document}

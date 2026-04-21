@@ -1,0 +1,188 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{framed}
+\title{HW 1.3}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    4/21/26 \\
+    MATH 405
+}
+\rfoot{Page \thepage}
+\begin{document}
+\paragraph{\underline{5.1} \\ \\} 
+\textbf{\phantom{1}6.} \begin{tabular}[t]{l} 
+    How many ways are there to pick a man and a woman who are not married to each \\
+    other from a group of $n$ married couples?
+\end{tabular} \\ \\
+\indent \indent \begin{tabular}[t]{l}
+    We can represent the married couples as the pairs $(h_1, w_1), (h_2, w_2), \dots, (h_n, w_n)$. \\ 
+    For each husband $h_i$, we can choose any of the $n-1$ women who are not married \\
+    to him. That is, 
+    \end{tabular}
+    \begin{align*}
+        h_1 &: (h_1, w_2), (h_1, w_3), \dots, (h_1, w_n) \\
+        h_2 &: (h_2, w_1), (h_2, w_3), \dots, (h_2, w_n) \\
+        \vdots  \\
+        h_n &: (h_n, w_1), (h_n, w_2), \dots, (h_n, w_{n-1}) \\
+        \end{align*}
+\indent \indent \begin{tabular}[t]{l}
+    This is also analogous for the women, so we need not consider both cases to avoid\\
+     overcounting. Since there are $n$ husbands, the total number of ways are \boxed{\text{$n(n-1)$}}
+    \end{tabular} \\
+
+\textbf{12.} \begin{tabular}[t]{l} 
+    How many six-letter "words" (sequences of letters with repetition) are there in which \\
+    the first and last letter are vowels? In which vowels appear only (if at all) as the first \\
+    and last letter?
+    \end{tabular} \\ \\
+    \indent \indent \begin{tabular}[t]{l}
+        (i) Consider the set of vowels $\{a, e, i, o, u\}$. Since the first and last letter can only be vo- \\
+        wels, there are 5 choices for both. Due to repetition, the middle 4 letters have 26 choices \\
+        each. So, there $5^{2} \cdot 26^{4} = \boxed{\text{11,424,400}}$ six-letter words for this case.
+        \end{tabular}
+        \indent \indent \begin{tabular}[t]{l}
+            (ii) Now, words don't have to contain vowels, but they must be in the first and last \\
+            position if they do. So, the choices for each letter are
+            \end{tabular}
+            \[
+                \underset{\text{\small any letter}}{\overset{26}{\underline{\hspace{1cm}}}} \cdot
+                \underset{\text{\small no vowels}}{\overset{21}{\underline{\hspace{1cm}}}} \cdot
+                \underset{\text{\small no vowels}}{\overset{21}{\underline{\hspace{1cm}}}} \cdot
+                \underset{\text{\small no vowels}}{\overset{21}{\underline{\hspace{1cm}}}} \cdot
+                \underset{\text{\small no vowels}}{\overset{21}{\underline{\hspace{1cm}}}} \cdot
+                \underset{\text{\small any letter}}{\overset{26}{\underline{\hspace{1cm}}}}
+            \]
+            \indent \indent \indent \begin{tabular}[t]{l}
+                So, the total number of six-letter words are $26^{2} \cdot 21^{4} = \boxed{\text{131,469,156}}$
+                \end{tabular} \\ \\
+        \indent \indent \begin{tabular}[t]{l}
+            Comment on these possible answers to the second part: \\
+            \indent \indent (a) $5^{2}21^{4}$: Incorrect because it doesn't take into account that the word doesn't have \\
+            \indent \indent \indent to contain vowels. So, the first and last letters have more than 5 choices. \\
+            \indent \indent (b) $5^{2}26^{4}$: This is incorrect because of the reason for (a) along with the middle letters \\
+            \indent \indent \indent being restricted to not being vowels. \\
+            \indent \indent (c) $21^{2}26^{4}$: Incorrect because it flips the rules for the first/last letters and the middle \\
+            \indent \indent \indent letters. \\
+            \indent \indent (d) $26^{6} - 21^{2}26^{4}$: Incorrect because this difference essentially says \\
+            \indent \indent \indent (all possible words) $-$ (words without vowels in the 1st and last position). \\
+            \indent \indent \indent Due to that $26^{4}$ factor, this violates the rules for (ii) because the result can have \\
+            \indent \indent \indent words with vowels in the middle, which is not allowed.
+            \end{tabular} \\ \\
+    \textbf{14.} \begin{tabular}[t]{l} 
+        How many different numbers can be formed by various arrangements of the six digits \\
+        $1, 1, 1, 1, 2, 3$?
+        \end{tabular} \\ \\
+        \indent \indent \begin{tabular}[t]{l}
+            Consider the choices for the 2 and 3. Since there are 6 digits, there are 6 ways to place\\
+            either of them. Then, the remaining of the two has 5 choices. Once we've place the 2\\
+            and 3, there's only one way to place the 1's in the remaining spots since they're identical. \\
+            So,
+            \end{tabular} \\
+            \[
+            \underset{\text{\small ways to place choice of 2 or 3}}{\overset{6}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small ways to place remaining choice of 2 or 3}}{\overset{5}{\underline{\hspace{1cm}}}}
+            \]
+
+            \indent \indent \begin{tabular}[t]{l}
+                There are $6 \cdot 5 = \boxed{\text{30}}$ different numbers that can be formed.
+                \end{tabular} \\
+    \textbf{22.} \begin{tabular}[t]{l} 
+        How many ternary (0, 1, 2) sequences of length 10 are there without any pair of consecutive \\
+        digits the same?
+    \end{tabular} \\ \\
+    \begin{tabular}[t]{l}
+        The initial number will have 3 choices, but the number after it will have 2. The number after that \\
+       will also have 2 choices. Thus, every subsequent number after the first will have 2 choices to ensure \\ 
+       no consecutive digits are the same. So,
+        \end{tabular}
+        \[
+            \underset{\text{\small 1st \#}}{\overset{3}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 2nd \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 3rd \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 4th \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 5th \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 6th \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 7th \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 8th \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 9th \#}}{\overset{2}{\underline{\hspace{1cm}}}} \cdot
+            \underset{\text{\small 10th \#}}{\overset{2}{\underline{\hspace{1cm}}}}
+        \]
+        \indent \indent \begin{tabular}[t]{l}
+            So, there are $3 \cdot 2^9 = \boxed{\text{1,536}}$ possible ternary sequences.
+        \end{tabular} \\
+\paragraph{\underline{5.2} \\ \\} 
+\textbf{10.} \begin{tabular}[t]{l} 
+    What is the probability that an arrangment of the letters $a, b, c, e, f, g$ begins and ends \\
+    with a vowel? 
+    \end{tabular} \\ \\
+    \indent \indent \begin{tabular}[t]{l}
+        Since the set of letters $\{a, b, c, e, f, g\}$ has 2 vowels, the first letter has 2 choices and the last \\
+        letter has 1 choice. Thus, this gives us P$(2, 2) = 2! = 2$ possible arrangements for the vowels.\\
+        The remaining 4 positions have P$(4, 4) $ $= 24$ possible arrangements. The total space of rearr-\\
+        anging these six letters is $6! = 720$, making the probability of such an arrangement $\frac{2 \cdot 24}{720} = \boxed{\frac{1}{15}}$
+        \end{tabular} \\
+    \textbf{32.} \begin{tabular}[t]{l} 
+        There are three women and five men who will split up into two four-person teams. How \\
+        many ways are there to do this so that there is (at least) one women on each team? 
+        \end{tabular} \\ \\
+        \indent \indent \begin{tabular}[t]{l}
+            First, we want to calculate the total number of ways to put at least one woman on each team. \\
+            Since there are 3 women, there are $\binom{3}{1} = 3$ ways to choose at least one woman for a team. \\
+            Then, we need to 3 men to fill the remaining spots on the team. There are $\binom{5}{3} = 10$ ways to \\
+            choose the remaining men. So, there are $3 \cdot 10 =$ \boxed{\text{30 ways}} to put at least one woman on \\
+            each team.
+            \end{tabular} \\
+    \textbf{40.} \begin{tabular}[t]{l} 
+        How many arrangements of 1, 1, 1, 1, 2, 3, 3 are there with the 2 not beside either 3?
+        \end{tabular} \\ 
+        \indent \indent \begin{tabular}[t]{l}
+            The answer to this problem should be equivalent to finding the difference between the total \\
+            number of arrangements of the digits and the complement of this problem, the number of \\
+            arrangements where 2 is next to at least one 3. Since there are 7 digits with 4 1s, 2 3s and \\
+            a 2, 
+        \end{tabular}
+        \begin{align*}
+            \text{P}(7; 4, 1, 2) = \frac{7!}{4! \cdot 1! \cdot 2!} = 105 \text{ ways}
+            \end{align*}
+        \indent \indent \begin{tabular}[t]{l}
+             The complement of the problem has 2 cases:  \\
+             \indent \textbf{Case 1}: If 2 is next to at least one 3, the arrangement of 2 and 3 can look like (2,3) \\
+             or (3,2). So, there are 2 ways to arrange the 2 and 3. Combining one of the arrangements \\
+             into one digit, there'll be 6 digits to arrange: 4 1s, 1 (23) and a 3. So, this case can be arr-\\
+             anged in
+            \end{tabular} \\
+            \begin{align*}
+                \text{P}(6; 4, 1, 1) = \frac{6!}{4! \cdot 1! \cdot 1!} = 30 \text{ ways}
+                \end{align*}
+            \indent \indent \begin{tabular}[t]{l}
+                Since the same logic applies for the (3, 2) arrangement, this subcase can be arranged in \\
+                $30 \cdot 2 = 60$ ways. \\
+                \indent \textbf{Case 2}: If 2 is in between two 3s, the arrangement of the 3s and 2s can look like (3, 2, 3). \\
+                Similar to the previous case, combining the (3,2,3) arrangment will lead to arranging 5 digits: \\
+                4 1s and 1 (323). So, this case can be arranged in
+            \end{tabular} \\
+            \begin{align*}
+                \text{P}(5; 4, 1) = \frac{5!}{4! \cdot 1!} = 5 \text{ ways}.
+            \end{align*}
+            \indent \indent \begin{tabular}[t]{l}
+                Since the order of the 3s doesn't matter, this is the only arrangment for this case. Since the \\
+                case of (3, 2) and (2, 3) is also in (3, 2, 3), the total arrangments for the complement of the \\
+                problem is $60 - 5 = 55$ ways. So, the total arrangments with a 2 not beside either 3 is $105 -$\\
+                $55$ = \boxed{\text{50 ways}}
+                \end{tabular} \\
+\end{document}

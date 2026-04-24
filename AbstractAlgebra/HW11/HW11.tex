@@ -1,0 +1,266 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{empheq}
+\usepackage{framed}
+
+\title{HW 1.1}
+\author{Your Name}
+\date{\today}
+\pagestyle{fancy}
+\setlength{\headheight}{42pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\rhead{
+    Zack Abdirashid\\
+    4/24/26 \\
+    MATH 402
+}
+\rfoot{Page \thepage}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\paragraph{\underline{11} \\ \\}
+
+\begin{enumerate}[\textbf{\arabic{enumi}.}]
+
+    \item % Problem 1
+    \begin{enumerate}[(a)]
+        \item Let $R$ be a finite commutative ring with unity. Prove that every nonzero element of $R$ is either a zero-divisor or a unit.
+
+        \begin{proof}
+            Let $R$ be a finite commutative ring with unity and let $a \in R$ such that $a \neq 0$.
+            Since $R$ is finite, the set $\{a^{1}, a^{2}, a^{3}, ... \}$ must contain duplicates. So, there must be positive integers $m, n$ with $m > n$
+           such that $a^m = a^n$. So,
+            \begin{align*}
+                a^m - a^n &= 0 \\
+                a^n(a^{m-n} - 1) &= 0
+            \end{align*}
+
+            \textbf{Case 1:} Suppose $a^{m-n} - 1 = 0$. Then $a^{m-n} = 1$, so $a \cdot a^{m-n-1} = 1$.
+            Thus, $a$ is a unit with inverse $a^{m-n-1}$. \\
+
+            \textbf{Case 2:} Suppose $a^{m-n} - 1 \neq 0$. Then it must be that $a^n(a^{m-n} - 1) = 0$.
+            Let $k \in \mathbb{Z}$ such that $a^k(a^{m-n} - 1) = 0$.
+            If $k = 1$, then $a(a^{m-n} - 1) = 0$ which makes $a$ a zero-divisor.
+            If $k > 1$, then by factoring out an $a$ from $a^k$,
+            \[
+                a \cdot \big[a^{k-1}(a^{m-n} - 1)\big] = a^k(a^{m-n} - 1) = 0
+            \]
+            so $a$ is still a zero-divisor. In either case, every nonzero element of $R$ is a zero-divisor or a unit.
+        \end{proof}
+
+        \item Give an example of a nonzero element in some ring that is neither a zero-divisor nor a unit.
+
+        \begin{tabular}[t]{l}
+            Consider the ring $\mathbb{Z}$ and the element $2$. There does not exist a nonzero element $b \in \mathbb{Z}$ \\
+            such that $2b = 0$. $2$ also can not be a unit since its multiplicative inverse, $\frac{1}{2}$, is not in \\
+            $\mathbb{Z}$. 
+            \end{tabular} \\
+    \end{enumerate}
+
+    \item A ring element $a$ is called an \emph{idempotent} if $a^2 = a$. % Problem 2
+    \begin{enumerate}[(a)]
+        \item Prove that the only idempotents in an integral domain are $0$ and $1$.
+
+        \begin{proof}
+            Let $D$ be an integral domain and let $a \in D$ such that a is an idempotent. By contradiction,
+            suppose $a \notin \{0, 1\}$. Then,
+            \begin{align*}
+                a^{2} &= a \\ 
+                \Rightarrow a^{2} - a &= 0 \\
+                \end{align*}
+            By Theorem 12.1, 
+            \begin{align*}
+                a^{2} - a &= a(a - 1)  = 0\\ 
+                \Rightarrow a = 0 &\text{ or } a - 1 = 0 \Rightarrow a = 1\\ 
+                \end{align*}
+                This contradicts the assumption of $a \notin \{0, 1\}$. Thus, the only idempotents in $D$ are $0$ and $1$.
+            \end{proof}
+
+        \item Prove that if $a$ is an idempotent in a ring, then $a^n = a$ for all positive integers $n$.
+
+        \begin{proof}
+            Let $R$ be a ring and let $a \in R$ such that $a$ is an idempotent. Since we want to show that any postive power of $a$ is idempotent,
+            we will proceed by induction. \\
+            \\
+            \underline{\textbf{Base Case}}: Let $n = 1$. Then, $a^{1} = a$. \\
+            \\
+            \underline{\textbf{Inductive Step}}: Let $k \in \mathbb{Z}$ where $k > 1$ and suppose $a^{k} = a$. We want to show that the same is true for 
+            $k + 1$. So,
+            \begin{align*}
+                a^{k+1} &= a^{k} \cdot a \\
+                &= a \cdot a \\
+                &= a^{2} \\
+                &= a.
+                \end{align*}
+                So, $a^{k+1} = a$. By induction, $a^n = a$ $\forall$ positive integers $n$.\\
+        \end{proof}
+
+        \item Find a nontrivial idempotent in $\Z_5[i] = \{a + bi \mid a, b \in \Z_5\}$.
+
+        \begin{tabular}[t]{l}
+            The elements in $\mathbb{Z}_5[i]$ include 
+            \end{tabular} 
+            \begin{align*}
+                \mathbb{Z}_5[i] = \{&0, 1, 2, 3, 4, \ (b = 0)\\ 
+                &i, 1 + i, 2 + i, 3 + i, 4 + i, \ (b = 1)\\
+                &2i, 1 + 2i, 2 + 2i, 3 + 2i, 4 + 2i, \ (b = 2)\\
+                &3i, 1 + 3i, 2 + 3i, 3 + 3i, 4 + 3i, \ (b = 3)\\
+                &4i, 1 + 4i, 2 + 4i, 3 + 4i, 4 + 4i 
+                \} \ (b = 4)
+                \end{align*}
+            \begin{tabular}[t]{l}
+                We can disregard the first row due to the modding by 5 making it impossible for the \\
+                square of an element to get back to itself along with 0 and 1 being trivial idempotents. \\ 
+                Similarly, the first column can be disregarded since taking the product $i^2$ along with the \\
+                square of its coefficient will equal an integer in $\mathbb{Z}_5$, and in turn losing the $i$. 
+                Looking at the \\
+                remaining elements, consider $3 + i$. 
+                \end{tabular} \\ 
+                \begin{align*}
+                    (3 + i)^{2} &= (3 + i)(3 + i) \\
+                    &= 9 + 6i - 1 \\
+                    &= (8 \text{ mod } 5) + (6 \text{ mod } 5)i \\
+                    &= 3 + i \\
+                    \end{align*}
+                    So, \boxed{\text{$3 + i$ is an idempotent.}}
+    \end{enumerate}
+
+    \item % Problem 3
+    \begin{enumerate}[(a)]
+        \item Let $S = \{a + bi \mid a, b \in \Z,\ b \text{ is even}\}$. Show that $S$ is a subring of $\Z[i]$, but not an ideal of $\Z[i]$.
+
+        \begin{proof}
+            Let $S = \{a + bi \mid a, b \in \Z,\ b \text{ is even}\}$. By the Subring Test, we need to show that $S$
+            is closed under subtraction and multiplication. Let $x_1 + x_2i, y_1 + y_2i \in S$ where $x_1, x_2, y_1, y_2 \in \Z$.
+            Then,
+            \begin{align*}
+                x_1 + x_2i - (y_1 + y_2i) &= (x_1 - y_1) + (x_2 - y_2)i \\
+                (x_1+x_2i)(y_1+y_2i) &= x_1y_1 + (x_1y_2)i + (x_2y_1)i - (x_2y_2) \\
+                &= (x_1y_1 - x_2y_2) + (x_1y_2 + x_2y_1)i \\
+                \end{align*}
+                Since $x_2$ and $y_2$ are even, their difference must be even. Also, their products with $x_1$ and $y_1$ must also be even, making their sum of products even.
+                So, $(x_1 + x_2i) - (y_1 + y_2i),(x_1 + x_2i)(y_1 + y_2i) \in S$ making $S$ a subring of $\Z[i]$. Now we need to show that $S$ is not 
+                an ideal of $\mathbb{Z}[i]$ by showing that $ab \notin S$ for some $a \in \mathbb{Z}[i]$ and $b \in S$. Consider $1 + i$ and
+                $1 + 2i$. Then,
+                \begin{align*}
+                    (1 + i)(1 +2i) &= 1 + 2i + i - 2 \\
+                    &= -1 + 3i \\
+                    \end{align*}
+                    Since 3 is odd, $-1 + 3i \notin S$. Thus, $S$ is not an ideal of $\mathbb{Z}[i]$.
+            \end{proof}
+        \item Let
+        \[
+            R = \left\{ \begin{bmatrix} a & b \\ 0 & c \end{bmatrix} \;\middle|\; a, b, c \in \R \right\} \quad \text{and} \quad A = \left\{ \begin{bmatrix} 0 & x \\ 0 & y \end{bmatrix} \;\middle|\; x, y \in \R \right\}
+        \]
+        Prove that $A$ is an ideal of $R$, and that $R/A$ is a field.
+
+        \begin{proof}
+            Let $R$ and $A$ be as defined in the problem statement. To show that $A$ is an ideal of $R$,
+            we need to show that $ab$ and $ba \in A$ for all $a \in A$ and $b \in R$. Let $a = \begin{bmatrix} a_1 & b_1 \\ 0 & c_1 \end{bmatrix}$ and $b = \begin{bmatrix} 0 & x_1 \\ 0 & y_1 \end{bmatrix}$ where $a_1, b_1, c_1, x_1, y_1 \in \mathbb{R}$. 
+            Then,
+            \begin{align*}
+                ab &= \begin{bmatrix} a_1 & b_1 \\ 0 & c_1 \end{bmatrix} \begin{bmatrix} 0 & x_1 \\ 0 & y_1 \end{bmatrix} \\
+                &= \begin{bmatrix} 0 & a_1x_1 + b_1y_1 \\ 0 & c_1y_1 \end{bmatrix} \\ \\
+                ba &= \begin{bmatrix} 0 & x_1 \\ 0 & y_1 \end{bmatrix} \begin{bmatrix} a_1 & b_1 \\ 0 & c_1 \end{bmatrix} \\
+                &= \begin{bmatrix} 0 & x_1c_1 \\ 0 & y_1c_1 \end{bmatrix} \\
+                \end{align*}
+                Since every non-zero entry is a real number, their products and sums are also real numbers. $A$ is also closed under subtraction
+                since the difference of two real numbers is also a real number and the left column will stay unchanged. Thus, $A$ is an ideal of $R$. \\
+                By Theorem 14.4, $R/A$ is a field iff $A$ is maximal.   
+             
+        \end{proof}
+    \end{enumerate}
+
+    \item % Problem 4
+    \begin{enumerate}[(a)]
+        \item If an ideal $I$ of a ring $R$ contains a unit, show that $I = R$.
+
+        \begin{proof}
+            Let $I$ be an ideal of a ring $R$ and let $a \in I$ be a unit. By definition of a unit, there exists an $a^{-1} \in R$. Since $I$ is an ideal, $aa^{-1} \in I$. Thus, $1 \in I$.
+            Since $1 \in I$, $r \cdot 1 \ = r \in I$ for all $r \in R$. That means $R \subseteq I$.  Thus, $I = R$.
+        \end{proof}
+
+        \item Let $R$ be a commutative ring with unity. Prove that $R$ is a field if and only if the only ideals of $R$ are $\{0\}$ and $R$.
+
+        \begin{proof}
+            $(\Rightarrow)$ Suppose $R$ is a field. Let $I$ be an ideal of $R$. Then $I$ contains some
+            nonzero element $a$. Since $R$ is a field, $a$ is a unit. By part (a), $I = R$.
+
+            $(\Leftarrow)$ Suppose the only ideals of $R$ are $\{0\}$ and $R$. Let $a \in R$ with $a \neq 0$.
+            Consider the principal ideal $\langle a \rangle = \{ra \mid r \in R\}$. Since $a \neq 0$, $\langle a \rangle \neq \{0\}$,
+            so the only option is for $\langle a \rangle = R$. In particular, $1 \in \langle a \rangle$, so there exists $r \in R$ with $ra = 1$.
+            Thus $a$ is a unit. Since every nonzero element of $R$ is a unit, $R$ is a field.
+        \end{proof}
+    \end{enumerate}
+
+    \item % Problem 5
+    \begin{enumerate}[(a)]
+        \item Prove that $I = \langle 2 + 2i \rangle$ is not a prime ideal of $\Z[i]$.
+
+        \begin{proof}
+            We need to find elements $a, b \in \Z[i]$ such that $ab \in \langle 2 + 2i \rangle$ but $a \notin \langle 2 + 2i \rangle$
+            and $b \notin \langle 2 + 2i \rangle$. Consider $a = b = 2$. Then $ab = 4$, and
+            \[
+                (1 - i)(2 + 2i) = 2 + 2i - 2i - 2i^2 = 2 + 2 = 4
+            \]
+            so $4 \in \langle 2 + 2i \rangle$. Now suppose $2 \in \langle 2 + 2i \rangle$. Then there exists
+            $x + yi \in \Z[i]$ such that $(x + yi)(2 + 2i) = 2$. Expanding,
+            \begin{align*}
+                (2x - 2y) + (2x + 2y)i &= 2 + 0i
+            \end{align*}
+            So $2x - 2y = 2$ and $2x + 2y = 0$. Adding these gives $4x = 2$,
+            so $x = \frac{1}{2} \notin \Z$, a contradiction. Thus $2 \notin \langle 2 + 2i \rangle$.
+            Since $2 \cdot 2 = 4 \in \langle 2 + 2i \rangle$ but $2 \notin \langle 2 + 2i \rangle$,
+            $\langle 2 + 2i \rangle$ is not a prime ideal.
+        \end{proof}
+
+        \item Let $n = st$, where $s$ and $t$ are divisors of $n$ greater than $1$. Prove that $\langle s \rangle$ is a maximal ideal in $\Z_n$ if and only if $s$ is prime.
+
+        \begin{proof}
+            $(\Rightarrow)$ Suppose $\langle s \rangle$ is a maximal ideal of $\Z_n$. By contradiction, suppose $s$ is not prime.
+            Then $s = pq$ for some positive integers $p,q$ with $p < s$. Since $p$ divides $s$, multiples of $s$ are also
+            multiples of $p$. But since $p < s$, $p$ cannot be a multiple of $s$ in $\Z_n$, thus $p \notin \langle s \rangle$
+            and $\langle s \rangle \subsetneq \langle p \rangle$. 
+
+            Furthermore, since $s \mid n$ and $p \mid s$, then $p \mid n$. Because $p > 1$, $\gcd(p, n) \geq p > 1$,
+            which implies $1 \notin \langle p \rangle$. Thus, $\langle p \rangle \neq \Z_n$. 
+            This gives us $\langle s \rangle \subsetneq \langle p \rangle \subsetneq \Z_n$, which contradicts
+             $\langle s \rangle$ being maximal. Thus, $s$ must be prime. \\
+
+            $(\Leftarrow)$ Suppose $s$ is prime. Let $B$ be an ideal of $\Z_n$ such that $\langle s \rangle \subseteq B$
+            and $B \neq \langle s \rangle$. We want to show $B = \Z_n$. Since $B \neq \langle s \rangle$, there exists
+            $b \in B$ such that $b \notin \langle s \rangle$. In regards to $s$, this means $b$ is not a multiple of $s$,
+            so $s \nmid b$. Since $s$ is prime and $s \nmid b$, that means the $\gcd(s, b) = 1$.  By B\'{e}zout's Identity, there exist integers $u, v$ such that $us + vb = 1$.
+            Since $s \in \langle s \rangle \subseteq B$ and $b \in B$, and ideals are closed
+            under multiplication and addition, $us + vb$ must be in $B$. So, $B = \Z_n$. Thus, $\langle s \rangle$ is maximal.
+        \end{proof}
+    \end{enumerate}
+
+    \item If $R$ is a finite commutative ring with unity, prove that every prime ideal of $R$ is a maximal ideal of $R$. % Problem 6
+
+    \begin{proof}
+        Let $P$ be a prime ideal of $R$. Then $R/P$ is an integral domain. Since $R$ is finite,
+        $R/P$ is also finite. By 1(a), every nonzero element of $R/P$ is either a zero-divisor
+        or a unit. Since $R/P$ is an integral domain, it has no zero-divisors. Therefore every nonzero element
+        of $R/P$ is a unit, making $R/P$ a field. Since $R/P$ is a field, $P$ is a maximal ideal.
+    \end{proof}
+
+\end{enumerate}
+
+\end{document}
